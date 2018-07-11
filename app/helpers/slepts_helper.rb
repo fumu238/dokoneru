@@ -1,0 +1,2 @@
+module SleptsHelper
+end

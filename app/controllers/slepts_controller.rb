@@ -1,0 +1,2 @@
+class SleptsController < ApplicationController
+end

@@ -1,0 +1,162 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+a {
+   text-decoration: none !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*application_html-----------------*/
+header {
+	width:100%;
+	height:80px;
+	background-color:#99cc99;
+	color:white;
+	opacity: 0.5;
+}
+footer {
+	width:100%;
+	height:80px;
+	background-color:#99cc99;
+}
+.head-logo {
+	display: inline-block;
+	width:500px;
+	height:80px;
+	line-height: 80px;
+	font-size:30px;
+	color:white;
+	margin-left:30px;
+}
+.head-right {
+	float:right;
+	height:80px;
+	width:500px;
+	line-height:80px;
+	font-size:20px;
+}
+.head-links {
+	display:inline-block;
+	margin-right:30px;
+}
+/*--------------------------------*/
+
+/*spot_index(top)----------------------*/
+.top-main {
+	background-image: url(main-image.jpg);
+	background-position:bottom;
+	background-size:cover;
+	background-repeat: no-repeat;
+	width:100%;
+	height:715px;
+	padding-top:300px;
+}
+.top-main-box {
+	width:100%;
+	height:100px;
+	background-color: white;
+	opacity: 0.5;
+	color:black;
+	font-size:30px;
+	text-align: center;
+	line-height: 100px
+}
+
+.top-add-box {
+	width:800px;
+	height:300px;
+	border:solid 1px #cccccc;
+	border-radius: 10px;
+	margin:20px auto;
+	text-align: center;
+}
+.top-new-arrivals{
+	width:800px;
+	height:800px;
+	text-align:center;
+	margin:50px auto 50px;
+	border:solid 1px #cccccc;
+	border-radius: 10px;
+}
+/*--------------------------------*/
+
+/*prefecture_index----------------*/
+.area1{
+	width:100%;
+	height:300px;
+	background-color:#ffb7b7;
+}
+.area2{
+	width:100%;
+	height:300px;
+	background-color:#ffb7db;
+}
+.area3{
+	width:100%;
+	height:300px;
+	background-color:#ffb7ff;
+}
+.area4{
+	width:100%;
+	height:300px;
+	background-color:#dbb7ff;
+}
+.area5{
+	width:100%;
+	height:300px;
+	background-color:#b7b7ff;
+}
+.area6{
+	width:100%;
+	height:300px;
+	background-color:#b7dbff;
+}
+.area7{
+	width:100%;
+	height:300px;
+	background-color:#b7ffff;
+}
+.area8{
+	width:100%;
+	height:300px;
+	background-color:#b7ffdb;
+}
+.area9{
+	width:100%;
+	height:300px;
+	background-color:#b7ffb7;
+}
+
+
+
+
+
+
+
+
+
