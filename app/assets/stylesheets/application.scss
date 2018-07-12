@@ -97,7 +97,6 @@ footer {
 }
 .top-new-arrivals{
 	width:800px;
-	height:800px;
 	text-align:center;
 	margin:50px auto 50px;
 	border:solid 1px #cccccc;
@@ -151,6 +150,179 @@ footer {
 	height:300px;
 	background-color:#b7ffb7;
 }
+.area-left {
+	width:500px;
+	height:300px;
+	background-color: white;
+	opacity:0.5;
+}
+.area-right {
+	float:right;
+	width:500px;
+	height:300px;
+	background-color: white;
+	opacity:0.5;
+}
+.area-head {
+	text-align:center;
+	font-size:25px;
+}
+.prefecture-list1 {
+	height:240px;
+	text-align: center;
+	line-height: 240px;
+	font-size:20px;
+}
+.prefecture-list {
+	float:left;
+	width:250px;
+	height:80px;
+	text-align: center;
+	line-height: 80px;
+	font-size:20px;
+}
+.prefecture-list-big {
+	float:left;
+	width:250px;
+	height:60px;
+	text-align: center;
+	line-height: 80px;
+	font-size:20px;
+}
+
+/*prefecture_show-------------*/
+.prefecture-show {
+	width:100%;
+	background-color: #e5fff2;
+}
+.prefecture-show-main {
+	width:800px;
+	background-color: white;
+	margin:0 auto;
+	padding:30px 10px;
+}
+.prefecture-show-main-text {
+	text-align: center;
+	font-size: 25px;
+	margin-bottom:50px;
+}
+.main-content {
+	height:200px;
+	border-bottom:solid 5px #e5fff2;
+	border-radius: 5px;
+	padding:5px 15px;
+	margin-bottom:15px;
+}
+.index-image {
+	height:180px;
+	width:240px;
+	border:solid 1px #f5f5f5;
+	float:left;
+	margin-right:10px;
+	box-shadow: 3px 3px #f5f5f5;
+}
+.page-space {
+	height:100px;
+	text-align: center;
+}
+
+
+
+
+
+
+/*spot_show-----------------------------*/
+.spot-show {
+	width:100%;
+	background-color: #f5fffa;
+}
+.spot-show-main {
+	width:800px;
+	background-color: white;
+	margin:0 auto;
+	padding:30px 10px;
+}
+.spot-show-head {
+	padding:30px 20px 10px;
+	border-bottom:solid 2px #cccccc;
+}
+.spot-h3 {
+	float:left;
+	width:680px;
+	font-size:18px;
+	margin-bottom:10px;
+}
+.spot-h3::before {
+	content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-right: 2px;
+    background: #99cc99;
+    position: relative;
+    top: 2px;
+    margin-right:3px;
+    border-radius: 30px;
+}
+.edit-button {
+	float:right;
+	border:solid 1px orange;
+	border-radius: 5px;
+	color:orange;
+	padding:5px;
+}
+.spot-space {
+	padding:20px 10px 20px;
+}
+.spot-image-box {
+	height:340px;
+	float:left;
+	margin-left:8px;
+	border-bottom:solid 2px #cccccc;
+}
+.spot-image {
+	height:270px;
+	width:360px;
+	margin:0 10px 5px 0;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+	margin-top:10px;
+	background-image: url(main-image.jpg);
+	background-position:bottom;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.spot-info-box {
+	float:left;
+	height:400px;
+	font-size:20px;
+}
+.spot-info-box dl {
+	display:flex;
+	border-bottom:solid 2px #cccccc;
+	padding:10px;
+}
+.spot-info-box dl dt {
+	width:300px;
+}
+.spot-info-box dl dd {
+	width:300px;
+}
+.spot-basis-info {
+	width:500px;
+	height:250px;
+	background-color: #cccccc;
+	margin-left:120px;
+	float: left;
+}
+.spot-show-share {
+	list-style: none;
+	text-align: center;
+}
+.spot-show-share li {
+	display: inline-block;
+}
+
+
 
 
 
