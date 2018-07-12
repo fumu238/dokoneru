@@ -1,6 +1,6 @@
 class PrefecturesController < ApplicationController
 
-	def index
+	def areas
 	end
 
 	def show
