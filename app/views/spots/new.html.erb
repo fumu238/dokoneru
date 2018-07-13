@@ -1,1 +1,52 @@
-new.html.erb
+<div class="back-ground">
+	<div class="main-space">
+		<div class="spot-show-head">
+			ネドコ新規投稿
+		　</div>
+		　　　<div class="container">
+               <form>
+               	 <%= form_for @spot do |f| %>
+        			<div class="form-group">
+		           		<label>野宿スポット名</label>
+		            	<%= f.text_field :spot_name, class: 'form-control' %>
+		        	</div>
+		        	<div class="form-group">
+	            		<label>エリア</label>
+	            		<%= f.collection_select :area_id, @area, :id, :area_name, class: 'form-control' %>
+		        	 </div>
+		        	<div class="form-group">
+		            	<label>都道府県</label>
+		            	<%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name, class: 'form-control' %>
+		        	  </div>
+		        	<div class="form-group">
+		           	 <label>スポット住所</label>
+		            	<%= f.text_field :spot_address, class: 'form-control' %>
+			        </div>
+			        <div class="form-group">
+			            <label>説明文</label>
+		            	<%= f.text_area :discription, class: 'form-control' %>
+			        </div>
+			        <div class="form-group">
+	            		<label>独立水道の有無</label>
+		            	<%= f.text_field :watar, class: 'form-control' %>
+	        		</div>
+	        		<div class="form-group">
+	            		<label>トイレの有無</label>
+		            	<%= f.text_field :toilet, class: 'form-control' %>
+	        		</div>
+	        		<div class="form-group">
+	            		<label>屋根の有無</label>
+		            	<%= f.text_field :roof, class: 'form-control' %>
+	        		</div>
+	        		<div class="form-group">
+	            		<label>24時間休憩所の有無</label>
+		            	<%= f.text_field :rest_area, class: 'form-control' %>
+	        		</div>
+
+	        		<%= f.submit "投稿する",class: "btn btn-outline-info" %>
+        
+        		<% end %>
+    		　</form>
+			</div>
+	</div>
+</div>

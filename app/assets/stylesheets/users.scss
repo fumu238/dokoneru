@@ -1,3 +1,50 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*user_show---------------------------*/
+
+.user-header-image {
+	background-color: black;
+	height:300px;
+	padding:100px 0 0 30px;
+}
+.user-icon {
+	background-color: white;
+	width:150px;
+	height:150px;
+}
+.user-name {
+	background-color: white;
+	width:150px;
+	margin-top:10px;
+}
+.user-info-space {
+	height:50px;
+	padding:0 10px 0;
+	border:solid 4px gray;
+	border-radius: 5px;
+}
+.user-info-space li {
+	width:247px;
+	list-style: none;
+	display: inline-block;
+	padding:9px 0 9px;
+	text-align: center;
+}
+.user-info-space li:nth-child(2) {
+	border-right:solid 3px;
+	border-left:solid 3px;
+
+}
+.introduction dt{
+	width:100px;
+}
+.introduction dd{
+	width:500px;
+}
+.introduction dl {
+	display: flex;
+}
+

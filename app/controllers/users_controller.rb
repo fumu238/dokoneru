@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find(params[:id])
 	end
 
 	def favorites
@@ -11,4 +12,5 @@ class UsersController < ApplicationController
 
 	def slepts
 	end
+
 end
