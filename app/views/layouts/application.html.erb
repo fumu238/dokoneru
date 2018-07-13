@@ -6,8 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.japan-map.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery.japan-map.min.js"></script> -->
   </head>
 
 
@@ -15,14 +15,19 @@
   <body>
 <header clearfix>
   <div class="head-logo">
-   ドコネル?
+   <%= link_to "ドコ", root_path ,:style =>"color:#007b43;" %>
    </div>
-　　<div class="head-right">
-      <div class="head-links"><%= link_to "都道府県から探す" ,areas_path ,:style => "color:white;" %></div>
-      <div class="head-links" style="color:white;">検索</div>
-      <div class="head-links" style="color:white;">マイページ</div>
+　　 <div class="head-right">
+       <div class="head-links"><%= link_to "都道府県から探す" ,areas_path ,:style => "color:#007b43;" %>
+         </div>
+        <div class="head-links" style="color:#007b43;">検索</div>
+        <div class="head-links"><%= link_to "マイページ" ,user_path(1) ,:style => "color:#007b43;" %>
+        </div>
+        <div class="head-links"><%= link_to "新規投稿" ,new_spot_path ,:style => "color:#007b43;" %>
+        </div>
 　　</div>
 </header>
+<%= link_to 'log_out',  destroy_admin_session_path,method: :delete  %>
 
     <%= yield %>
 
@@ -31,7 +36,5 @@
 フッターです
 </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js">
-    </script>
   </body>
 </html>

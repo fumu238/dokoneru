@@ -1,1 +1,75 @@
-show.html.erb
+<div class="back-ground">
+	<div class="main-space">
+			<div class="user-header-image">
+				<div class="user-icon">
+			     </div>
+			     <div class="user-name">
+			     	<%= @user.user_name %>
+			     </div>
+			 </div>
+			 <div class="user-info-space">
+			 	<ul>
+			 		<li>登録情報の確認
+			 		</li>
+			 		<li>お気に入り一覧
+			 		</li>
+			 		<li>マイネドコ一覧
+			 		</li>
+			 	</ul>
+			 </div>
+		 <div class="content-space">
+		 	<div class="introduction">
+		 		<dl>
+			 	  <dt>性別
+			      </dt>
+			      <dd>男
+			      </dd>
+			 	</dl>
+			 	<dl>
+			 	  <dt>年代
+			      </dt>
+			      <dd>20~24
+			      </dd>
+			 	</dl>
+			 	<dl>
+			 	  <dt>自己紹介
+			      </dt>
+			      <dd>はじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええ
+			      </dd>
+			 	</dl>
+		 	</div>
+		 </div>
+		   <div class="content-space">
+		   	<div class="spot-h3">
+			    ドコネルデータ
+			  </div>
+			  	<canvas id="myBarChart"></canvas>
+		   </div>
+	</div>
+</div>
+
+<script>
+	Chart.scaleService.updateScaleDefaults('linear', {
+    ticks: {
+        min: 0
+    }
+});
+	var ctx = document.getElementById("myBarChart").getContext('2d');
+	var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["北海道","東北","関東","北陸・甲信越","東海","関西","中国","四国","九州"],
+        datasets: [{
+            label: "宿泊データ",
+            data: [1,2,3,4,5,6,7,8,9,10],
+            backgroundColor: "green",
+        }]
+    },
+    options: {
+        title:  {
+          display: false,
+          text: "宿泊データ"
+        }
+    }
+});
+</script>

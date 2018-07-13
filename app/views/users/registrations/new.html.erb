@@ -1,29 +1,56 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<div class="back-ground">
+    <div class="main-space">
+      <div class="container">
+        <!-- <form class="form-horizontal"> -->
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">名前</label>
+                  <div class="col-xs-5">
+                    <%= f.text_field :user_name %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">ふりがな</label>
+                  <div class="col-xs-5">
+                    <%= f.text_field :name_phonetic %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">ニックネーム</label>
+                  <div class="col-xs-5">
+                    <%= f.text_field :nick_name %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">メールアドレス</label>
+                  <div class="col-xs-5">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "mail" %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">パスワード</label>
+                  <div class="col-xs-5">
+                    <% if @minimum_password_length %>
+                    <%= f.password_field :password, autocomplete: "off" %>
+                    (<%= @minimum_password_length %> 文字以上にしてください)
+                    <% end %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-2">パスワード（確認用）</label>
+                  <div class="col-xs-5">
+                   <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-xs-5"></label>
+                  <div class="col-xs-2">
+                   <%= f.submit "登録" ,class: "btn btn-outline-info"%>
+                  </div>
+              </div>
+              <% end %>
+          <!-- </form> -->
+        </div>
+    </div>
+</div>

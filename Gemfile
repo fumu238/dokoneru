@@ -58,6 +58,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "devise"
 gem "ransack"
-gem "bootstrap-sass"
 gem "jquery-rails"
 gem "kaminari"
+gem 'bootstrap', '~> 4.1.1'
+gem 'seed-fu', '~> 2.3'
+gem 'chart-js-rails', '~> 0.1.4'
