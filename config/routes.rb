@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations',
     sessions:      'admins/sessions',
   }
+  get "/spots/search" => "spots#search"
   resources :users
+  resources :spot_images
+  # resources :favorites
+  # resources :slepts
+
 
   get "/slepts" => "users#slepts"
   get "/favorites" => "users#favorites"

@@ -20,20 +20,28 @@
 　　 <div class="head-right">
        <div class="head-links"><%= link_to "都道府県から探す" ,areas_path ,:style => "color:#007b43;" %>
          </div>
-        <div class="head-links" style="color:#007b43;">検索</div>
-        <div class="head-links"><%= link_to "マイページ" ,user_path(1) ,:style => "color:#007b43;" %>
+        <div class="head-links" style="color:#007b43;">検索
         </div>
+         <% if user_signed_in? %>
+            <div class="head-links"><%= link_to "マイページ" ,user_path(current_user), :style => "color:#007b43;" %>
+            </div>
+          <% else %>
+            <div class="head-links"><%= link_to "ログイン" ,new_user_session_path, :style => "color:#007b43;" %>
+            </div>
+        <% end %>
         <div class="head-links"><%= link_to "新規投稿" ,new_spot_path ,:style => "color:#007b43;" %>
         </div>
 　　</div>
 </header>
-<%= link_to 'log_out',  destroy_admin_session_path,method: :delete  %>
 
     <%= yield %>
 
 
 <footer>
 フッターです
+<div>
+<%= link_to 'ログアウトする',  destroy_admin_session_path, method: :delete,:style => "color:white;" %>
+</div>
 </footer>
 
   </body>

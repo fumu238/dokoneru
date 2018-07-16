@@ -1,40 +1,40 @@
 <div class="back-ground">
 	<div class="main-space">
 			<div class="user-header-image">
+				<%= attachment_image_tag @user, :background_image, :fill, 780, 290, format: 'jpeg' %>
 				<div class="user-icon">
+					<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg' %>
 			     </div>
 			     <div class="user-name">
-			     	<%= @user.user_name %>
+			     	<%= @user.nick_name %>
 			     </div>
 			 </div>
-			 <div class="user-info-space">
-			 	<ul>
-			 		<li>登録情報の確認
-			 		</li>
-			 		<li>お気に入り一覧
-			 		</li>
-			 		<li>マイネドコ一覧
-			 		</li>
-			 	</ul>
+			 <div class="user-info-space clearfix">
+			 		<div class="user-info-line"><%= link_to "登録情報の確認", edit_user_path, :style => "color:gray;" %>
+			 		</div>
+			 		<div class="user-info-line"><%= link_to "お気に入り一覧", favorites_path ,:style => "color:gray;" %>
+			 		</div>
+			 		<div class="user-info-line"><%= link_to "ネタネドコ一覧", slepts_path, :style => "color:gray;"  %>
+			 		</div>
 			 </div>
 		 <div class="content-space">
 		 	<div class="introduction">
 		 		<dl>
 			 	  <dt>性別
 			      </dt>
-			      <dd>男
+			      <dd><%= @user.sex %>
 			      </dd>
 			 	</dl>
 			 	<dl>
 			 	  <dt>年代
 			      </dt>
-			      <dd>20~24
+			      <dd><%= @user.age %>
 			      </dd>
 			 	</dl>
 			 	<dl>
 			 	  <dt>自己紹介
 			      </dt>
-			      <dd>はじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええはじめましてええええええええええええ
+			      <dd><%= @user.introduction %>
 			      </dd>
 			 	</dl>
 		 	</div>
@@ -49,13 +49,13 @@
 </div>
 
 <script>
-	Chart.scaleService.updateScaleDefaults('linear', {
+Chart.scaleService.updateScaleDefaults('linear', {
     ticks: {
         min: 0
     }
 });
-	var ctx = document.getElementById("myBarChart").getContext('2d');
-	var myBarChart = new Chart(ctx, {
+var ctx = document.getElementById("myBarChart").getContext('2d');
+var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["北海道","東北","関東","北陸・甲信越","東海","関西","中国","四国","九州"],

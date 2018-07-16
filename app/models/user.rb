@@ -7,4 +7,8 @@ class User < ApplicationRecord
          has_many :favorites
          has_many :slepts
          has_many :post_comments
+         has_many :spots
+
+         attachment :profile_image
+         attachment :background_image
 end
