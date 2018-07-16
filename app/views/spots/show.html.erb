@@ -1,27 +1,20 @@
 <div class="back-ground">
 	<div class="main-space">
-		<div class="spot-show-head">
-			<h2>道の駅〇〇</h2>
-			<p>群馬県</p>
+		<div class="section-head clearfix">
+			<div class="head-user">
+				投稿者　<%= @spot.user.nick_name %> さん
+			  </div>
+			<h3><%= @spot.spot_name %></h3>
+			<h4><%= @spot.prefecture.prefecture_name %></h4>
 		</div>
 		  <div class="content-space clearfix">
 			<div class="spot-h3">
 			    画像ギャラリー
 			  </div>
 				<div class="edit-button">
-				 	編集する
+				 	<%= link_to "編集する", edit_spot_image_path, class: "btn btn-outline-warning" %>
 				  </div>
 				   <div class="spot-image-box">
-			 	     <div class="spot-image">
-			       </div>
-			     イメージの説明
-			  </div>
-			  <div class="spot-image-box">
-			 	     <div class="spot-image">
-			       </div>
-			     イメージの説明
-			  </div>
-			  <div class="spot-image-box">
 			 	     <div class="spot-image">
 			       </div>
 			     イメージの説明
@@ -32,74 +25,98 @@
 		  		スポット特徴
 			 </div>
 			 <div class="edit-button">
-				 	編集する
+				 	<%= link_to "編集する", edit_spot_path, class: "btn btn-outline-warning" %>
 				 </div>
 				 <div class="spot-info-box">
 				 	<dl>
 				 	  <dt>タイプ
 				      </dt>
-				      <dd>道の駅
+				      <dd><%= @spot.type %>
 				      </dd>
 				 	</dl>
 				 	<dl>
 				 	  <dt>東屋
 				      </dt>
-				      <dd>⭕️
+				      <dd>
+				      	<% if @spot.pavilion == "あり" %>
+				      	  ●
+				      	  <% elsif @spot.pavilion == "なし" %>
+				      	  ×
+				      	   <% else %>
+				      	   −
+				      	   <% end %>
 				      </dd>
 				 	</dl>
 				 	<dl>
 				 	  <dt>24時間休憩所
 				      </dt>
-				      <dd>❌
-				      </dd>
-				 	</dl>
-				 	<dl>
-				 	  <dt>トイレ
-				      </dt>
-				      <dd>⭕️
+				      <dd><% if @spot.rest_area == "あり" %>
+				      	  ●
+				      	  <% elsif @spot.rest_area == "なし" %>
+				      	  ×
+				      	   <% else %>
+				      	   −
+				      	   <% end %>
 				      </dd>
 				 	</dl>
 				 	<dl>
 				 	  <dt>屋根
 				      </dt>
-				      <dd>➖
+				      <dd><% if @spot.roof == "あり" %>
+				      	  ●
+				      	  <% elsif @spot.roof == "なし" %>
+				      	  ×
+				      	   <% else %>
+				      	   −
+				      	   <% end %>
+				      </dd>
+				 	</dl>
+				 	<dl>
+				 	  <dt>トイレ
+				      </dt>
+				      <dd><% if @spot.toilet == "あり" %>
+				      	  ●
+				      	  <% elsif @spot.toilet == "なし" %>
+				      	  ×
+				      	   <% else %>
+				      	   −
+				      	   <% end %>
 				      </dd>
 				 	</dl>
 				 	<dl>
 				 	  <dt>独立水道
 				      </dt>
-				      <dd>⭕️
-				      </dd>
+				      <dd><% if @spot.watar == "あり" %>
+				      	  ●
+				      	  <% elsif @spot.watar == "なし" %>
+				      	  ×
+				      	   <% else %>
+				      	   −
+				      	   <% end %>
 				 	</dl>
 				 </div>
 		  </div>
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
 		  		スポット登録者コメント
-			  </div>
-			   <div class="edit-button">
-				 編集する
-			 </div>
+			   </div>
+			    <div class="discription">
+			      <%= @spot.discription %>
+			    </div>
 		   </div>
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
 		  		コメント欄
 			  </div>
-			   <div class="edit-button">
-				 編集する
-			 </div>
 		   </div>
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
 		  		スポット基本情報
 			   </div>
-			  <div class="edit-button">
-		     	編集する
-			 </div>
 			  <div class="spot-basis-info">
-			  	道の駅　〇〇<br>
-			  	群馬県<br>
-			  	住所：群馬県高崎市〇〇
+			  	<%= @spot.spot_name %><br>
+			  	<%= @spot.area.area_name %><br>
+			  	住所：<%= @spot.spot_address %>
 			  </div>
 		   </div>
 		 <div class="content-space clearfix">
@@ -113,6 +130,5 @@
 		 <div class="content-space clearfix">
 		 	TOP > 都道府県 > 群馬県 > 道の駅○○
 		 </div>
-<%= link_to 'aa',root_path, class: "btn btn-outline-warning" %>
 	</div>
 </div>

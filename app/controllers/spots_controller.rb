@@ -1,10 +1,11 @@
 class SpotsController < ApplicationController
 
 	def index
+		@spot = Spot.all
 	end
 
 	def show
-		@spot = Spot.find_by(params[:spot_name])
+		@spot = Spot.find(params[:id])
 	end
 
 	def new
@@ -15,17 +16,21 @@ class SpotsController < ApplicationController
 
 	def create
 		spot = Spot.new(spot_params)
-		user.id = current_user.id
+		spot.user_id = current_user.id
 		spot.save
+		redirect_to spot_path(spot)
 	end
 
 	def edit
-		@spot = Spot.find_by(params[:spot_name])
+		@spot = Spot.find(params[:id])
+		@area = Area.all
+		@prefecture = Prefecture.all
 	end
 
 	def update
-		spot = Spot.find_by(params[:spot_name])
-		spot.update
+		spot = Spot.find(params[:id])
+		spot.update(spot_params)
+		redirect_to spot_path(spot)
 	end
 
 	def destroy
@@ -38,8 +43,8 @@ class SpotsController < ApplicationController
 
 	private
 	def spot_params
-		params.require(:spot).permit(:spot_name, :spot_address, :discription, :type,
-									:watar, :toilet, :roof, :prefecture_id, :area_id)
+		params.require(:spot).permit(:spot_name, :spot_address, :discription, :type, :rest_area, :pavilion,
+									:watar, :toilet, :roof, :prefecture_id, :area_id, :user_id)
 	end
 
 end
