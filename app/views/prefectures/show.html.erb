@@ -1,44 +1,23 @@
 <div class="back-ground">
 	<div class="main-space">
 		<div class="prefecture-show-main-text">
-			〇〇県で寝床探し
+			<%= @prefecture.prefecture_name %>
 		</div>
+	
+		<% @prefecture.spots.each do |spot| %>
+			<%= link_to spot_path(spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
+				<% spot.spot_images.first(1).each do |spot_image| %>
 				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
+					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
+				  </div>
+				  <% end %>
+				<h4><%= spot.spot_name %></h4>
+				<p><%= spot.spot_address %></p>
+				タイプ：<%= spot.type %>
 			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-
+			<% end %>
+		<% end %>
 		   <div class="page-space">
 		   	①②③
 		</div>

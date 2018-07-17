@@ -2,7 +2,10 @@
 	<div class="main-space">
 		<div class="section-head clearfix">
 			<div class="head-user">
-				投稿者　<%= @spot.user.nick_name %> さん
+				投稿者　<%= link_to user_path(@user),:style => "color:#99cc99" do %>
+				<%= @spot.user.nick_name %>
+				<% end %>
+				さん
 			  </div>
 			<h3><%= @spot.spot_name %></h3>
 			<h4><%= @spot.prefecture.prefecture_name %></h4>
@@ -12,13 +15,16 @@
 			    画像ギャラリー
 			  </div>
 				<div class="edit-button">
-				 	<%= link_to "編集する", edit_spot_image_path, class: "btn btn-outline-warning" %>
+				 	<%= link_to "画像投稿", new_spot_spot_image_path(@spot), class: "btn btn-outline-warning" %>
 				  </div>
+				  <% @spot.spot_images.each do |spot_image| %>
 				   <div class="spot-image-box">
 			 	     <div class="spot-image">
+			 	     	<%= attachment_image_tag spot_image, :image, :fill, 360, 270 , format: 'jpeg' %>
 			       </div>
-			     イメージの説明
+			     <%= spot_image.image_discription %>
 			  </div>
+			  <% end %>
 		</div>
 		  <div class="content-space clearfix">
 			<div class="spot-h3">
@@ -39,9 +45,9 @@
 				      </dt>
 				      <dd>
 				      	<% if @spot.pavilion == "あり" %>
-				      	  ●
+				      	  ⭕️
 				      	  <% elsif @spot.pavilion == "なし" %>
-				      	  ×
+				      	  ❌
 				      	   <% else %>
 				      	   −
 				      	   <% end %>
@@ -51,9 +57,9 @@
 				 	  <dt>24時間休憩所
 				      </dt>
 				      <dd><% if @spot.rest_area == "あり" %>
-				      	  ●
+				      	  ⭕️
 				      	  <% elsif @spot.rest_area == "なし" %>
-				      	  ×
+				      	  ❌
 				      	   <% else %>
 				      	   −
 				      	   <% end %>
@@ -63,9 +69,9 @@
 				 	  <dt>屋根
 				      </dt>
 				      <dd><% if @spot.roof == "あり" %>
-				      	  ●
+				      	  ⭕️
 				      	  <% elsif @spot.roof == "なし" %>
-				      	  ×
+				      	  ❌
 				      	   <% else %>
 				      	   −
 				      	   <% end %>
@@ -75,9 +81,9 @@
 				 	  <dt>トイレ
 				      </dt>
 				      <dd><% if @spot.toilet == "あり" %>
-				      	  ●
+				      	  ⭕️
 				      	  <% elsif @spot.toilet == "なし" %>
-				      	  ×
+				      	 ❌
 				      	   <% else %>
 				      	   −
 				      	   <% end %>
@@ -87,9 +93,9 @@
 				 	  <dt>独立水道
 				      </dt>
 				      <dd><% if @spot.watar == "あり" %>
-				      	  ●
+				      	  ⭕️
 				      	  <% elsif @spot.watar == "なし" %>
-				      	  ×
+				      	  ❌
 				      	   <% else %>
 				      	   −
 				      	   <% end %>
@@ -106,7 +112,18 @@
 		   </div>
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
-		  		コメント欄
+		 		コメント欄
+			    	<% @spot.post_comments.each do |post| %>
+		  		<%= post.user.nick_name %>
+		  		<%= post.comment %>
+			      <% end %>
+			      <%= link_to "削除",spot_post_comments_path(@spot),method: :delete, class: "btn btn-outline-danger" %>
+
+			      <%= form_for [@spot,@post_comment] do |f| %>
+			      <%= f.text_field :comment ,class: "form-control" %>
+			      <%= f.submit "コメントする",class: "btn btn-outline-success" %>
+			      <% end %>
+
 			  </div>
 		   </div>
 		 <div class="content-space clearfix">
@@ -130,5 +147,8 @@
 		 <div class="content-space clearfix">
 		 	TOP > 都道府県 > 群馬県 > 道の駅○○
 		 </div>
+		 <% if admin_signed_in? || @spot.user %>
+		 <%= link_to "投稿削除",spot_path ,class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
+		 <% end %>
 	</div>
 </div>

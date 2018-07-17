@@ -6,8 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> -->
-	<!-- <script type="text/javascript" src="js/jquery.japan-map.min.js"></script> -->
+  
   </head>
 
 
@@ -15,7 +14,7 @@
   <body>
 <header clearfix>
   <div class="head-logo">
-   <%= link_to "ドコ", root_path ,:style =>"color:#007b43;" %>
+   <%= link_to "ドコネル", root_path ,:style =>"color:#007b43;" %>
    </div>
 　　 <div class="head-right">
        <div class="head-links"><%= link_to "都道府県から探す" ,areas_path ,:style => "color:#007b43;" %>
@@ -43,6 +42,7 @@
 <%= link_to 'ログアウトする',  destroy_admin_session_path, method: :delete,:style => "color:white;" %>
 </div>
 </footer>
-
+ <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.japan-map.min.js"></script>
   </body>
 </html>

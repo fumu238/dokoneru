@@ -3,22 +3,42 @@
 		外で寝ても、いいですか？
     </div>
   </div>
-	<div class="top-add-box">
-		現在登録されている寝床は〇〇件です<br>
-		投稿してね
+	<div class="top-add-box clearfix">
+		<div class="add-text">
+		 現在登録されている寝床は <%= @spot.count %> 件です
+		 </div>
+	  <%= link_to new_spot_path do %>
+		<div class="add-btn">
+		  <br><br>
+		   快適なネドコを新規投稿する
+		</div>
+	  <% end %>
 	</div>
-
+	<div class="japan-map">
+　　   <div class="section-head">
+		 <h3>地図から探す</h3>
+		</div>
+    </div>
+  <div id="map" style="width:1000px; margin-left:180px">
+   </div>
   <div class="top-new-arrivals">
   	<div class="section-head">
 		 <h3>新着寝床一覧</h3>
 	  </div>
-	  	<% @spot.each do |spot| %>
+	  	<% @spot.first(5).each do |spot| %>
+	  	<%= link_to spot_path(spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
+				<% spot.spot_images.first(1).each do |spot_image| %>
 				<div class="index-image">
+					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
 				  </div>
+				  <% end %>
 				<h4><%= spot.spot_name %></h4>
+				<p><%= spot.prefecture.prefecture_name %></p>
 				<p><%= spot.spot_address %></p>
-				タイプ：公園
+				タイプ：<%= spot.type %><br>
+				[<%= spot.discription %>]
 			</div>
+			<% end %>
 		<% end %>
   </div>

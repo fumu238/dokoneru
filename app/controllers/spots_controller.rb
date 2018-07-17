@@ -1,11 +1,13 @@
 class SpotsController < ApplicationController
 
 	def index
-		@spot = Spot.all
+		@spot = Spot.all.reverse_order
 	end
 
 	def show
 		@spot = Spot.find(params[:id])
+		@user = @spot.user
+		@post_comment = PostComment.new
 	end
 
 	def new
