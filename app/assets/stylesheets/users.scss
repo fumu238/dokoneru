@@ -7,21 +7,23 @@
 
 .user-header-image {
 	height:300px;
-	/*padding:100px 0 0 30px;*/
 }
 .user-icon {
-	width:150px;
-	height:150px;
 	position:absolute;
-	top:227px;
-	/*border-radius: 50px;*/
+	border:solid 2px #007b43;
+	top:210px;
+	left:400px;
 }
 .user-name {
 	background-color: white;
+	text-align: center;
 	width:150px;
+	border-radius: 5px;
 	margin-top:10px;
 	position:absolute;
-	top:367px;
+	top:350px;
+	left:400px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
 .user-info-space {
 	height:50px;

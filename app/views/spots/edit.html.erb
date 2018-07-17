@@ -6,21 +6,21 @@
 		　　　<div class="container">
                	 <%= form_for @spot do |f| %>
         			<div class="form-group">
-		           		<label>野宿スポット名</label>
+		           		<label>ネドコ名</label>
 		            	<%= f.text_field :spot_name, class: 'form-control' %>
-		        	</div>
+		        	 	</div>
 		        	<div class="form-group">
 		        		<label>エリア</label>
-	            		<%= f.collection_select :area_id, @area, :id, :area_name , class: "form-control", prompt: "選択する" %>
-		        	 </div>
+	            		<%= f.collection_select :area_id, @area, :id, :area_name ,{ prompt: "選択"},{ class: "form-control"}%>
+		        	  </div>
 		        	<div class="form-group">
 		        		<label>都道府県</label>
-		            	<%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name, prompt: "選択する"%>
-		        	  </div>
-		        	  <div class="form-group">
-		           	 <label>ネドコタイプ</label>
-		            	<%= f.select :type, [["公園", "公園"], ["道の駅", "道の駅"],["無料キャンプ場","無料キャンプ場"],["その他","その他"]], prompt: "選択する"%>
-			        </div>
+		            	<%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name,{ prompt: "選択"}, {class: "form-control"} %>
+		        	   </div>
+		        	 <div class="form-group">
+		           	 	<label>ネドコタイプ</label>
+		            	<%= f.select :type, [["公園", "公園"], ["道の駅", "道の駅"],["無料キャンプ場","無料キャンプ場"],["その他","その他"]], {prompt: "選択"},{class: "form-control"}%>
+			          </div>
 		        	<div class="form-group">
 		           	 <label>スポット住所</label>
 		            	<%= f.text_field :spot_address, class: 'form-control' %>
@@ -30,25 +30,25 @@
 		            	<%= f.text_area :discription, class: 'form-control' %>
 			        </div>
 			        <div class="form-group">
-	            		<label>東屋の有無</label>
-		            	<%= f.text_field :pavilion, class: 'form-control' %>
-	        		</div>
+	            		<label>東屋</label>
+		            	<%= f.select :pavilion, [["あり", "あり"], ["なし", "なし"],], {prompt: "選択"},{class: "form-control"}%>
+	        		  </div>
 			        <div class="form-group">
 	            		<label>独立水道の有無</label>
-		            	<%= f.text_field :watar, class: 'form-control' %>
-	        		</div>
+		            	<%= f.select :watar, [["あり", "あり"], ["なし", "なし"],], {prompt: "選択"},{class: "form-control"}%>
+	        		  </div>
 	        		<div class="form-group">
 	            		<label>トイレの有無</label>
-		            	<%= f.text_field :toilet, class: 'form-control' %>
-	        		</div>
+		            	<%= f.select :toilet, [["あり", "あり"], ["なし", "なし"],], {prompt: "選択"},{class: "form-control"}%>
+	        		  </div>
 	        		<div class="form-group">
 	            		<label>屋根の有無</label>
-		            	<%= f.text_field :roof, class: 'form-control' %>
-	        		</div>
+		            	<%= f.select :roof, [["あり", "あり"], ["なし", "なし"],], {prompt: "選択"},{class: "form-control"}%>
+	        		  </div>
 	        		<div class="form-group">
 	            		<label>24時間休憩所の有無</label>
-		            	<%= f.text_field :rest_area, class: 'form-control' %>
-	        		</div>
+		            	<%= f.select :rest_area, [["あり", "あり"], ["なし", "なし"],], {prompt: "選択"},{class: "form-control"}%>
+	        		  </div>
 	        		<%= f.submit "編集する",class: "btn btn-outline-info" %>
         		<% end %>
 			</div>

@@ -17,24 +17,29 @@ Rails.application.routes.draw do
   }
   get "/spots/search" => "spots#search"
   resources :users
-  resources :spot_images
+  # resources :prefectures, only: [:show]
+
+  resources :spots do
+  resources :spot_images, only:[:new, :create, :edit, :destroy]
+  resource :post_comments, only: [:create, :destroy]
+
+  end
   # resources :favorites
   # resources :slepts
 
-
+# 一時的↓-----------------------------------
   get "/slepts" => "users#slepts"
   get "/favorites" => "users#favorites"
-
+# ------------------------------------------
   root "spots#index"
   get "/areas" => "prefectures#areas"
+  get "/prefecture/:prefecture_name/" => "prefectures#show", as: "areas_prefecture"
+
   # 県ごとのページ-----------------------------------------
   # get "/areas/:prefecture_name" => "prefectures#show"
   # スポット詳細ページ---------------------------------------
   # get "/areas/:prefecture_name/:spot_name" => "spots#show"
 
-  resources :spots
-
-  resources :prefectures, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

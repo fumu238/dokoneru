@@ -26,13 +26,13 @@
               <div class="form-group">
                   <label class="control-label col-xs-2">性別</label>
                   <div class="col-xs-5">
-                    <%= f.text_field :sex, class: "form-control" %>
+                    <%= f.select :sex,  [["男性", "男性"], ["女性", "女性"]] %>
                   </div>
               </div>
               <div class="form-group">
                   <label class="control-label col-xs-2">年齢</label>
                   <div class="col-xs-5">
-                    <%= f.text_field :age, class: "form-control" %>
+                    <%= f.select :age,  [["10代", "10代"], ["20代", "20代"],["30代","30代"],["40代","40代"],["50代","50代"],["60歳以上","60歳以上"]]%>
                   </div>
               </div>
                <div class="form-group">
