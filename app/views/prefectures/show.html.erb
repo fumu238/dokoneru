@@ -1,7 +1,7 @@
 <div class="back-ground">
 	<div class="main-space">
-		<div class="prefecture-show-main-text">
-			<%= @prefecture.prefecture_name %>
+		<div class="section-head">
+			<h3><%= @prefecture.prefecture_name %>でネドコを探す</h3>
 		</div>
 	
 		<% @prefecture.spots.each do |spot| %>
@@ -13,8 +13,10 @@
 				  </div>
 				  <% end %>
 				<h4><%= spot.spot_name %></h4>
+				<p><%= spot.prefecture.prefecture_name %></p>
 				<p><%= spot.spot_address %></p>
-				タイプ：<%= spot.type %>
+				<p>タイプ：<%= spot.type %></p>
+				<p>[<%= spot.discription %>]</p>
 			</div>
 			<% end %>
 		<% end %>

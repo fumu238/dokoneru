@@ -2,7 +2,7 @@
     <div class="main-space">
       <div class="container">
         <div class="section-head">
-             登録情報の確認・編集
+             <h3>登録情報の確認・編集</h3>
           </div>
           <%= form_for @user do |f| %>
               <div class="form-group">
@@ -26,13 +26,13 @@
               <div class="form-group">
                   <label class="control-label col-xs-2">性別</label>
                   <div class="col-xs-5">
-                    <%= f.select :sex,  [["男性", "男性"], ["女性", "女性"]] %>
+                    <%= f.select :sex,  [["男性","男性"],["女性", "女性"]], {prompt: "選択"},{class: "form-control"} %>
                   </div>
               </div>
               <div class="form-group">
                   <label class="control-label col-xs-2">年齢</label>
                   <div class="col-xs-5">
-                    <%= f.select :age,  [["10代", "10代"], ["20代", "20代"],["30代","30代"],["40代","40代"],["50代","50代"],["60歳以上","60歳以上"]]%>
+                    <%= f.select :age,  [["10代", "10代"],["20代", "20代"],["30代","30代"],["40代","40代"],["50代","50代"],["60代以上","60代以上"]], {prompt: "選択"},{class: "form-control"} %>
                   </div>
               </div>
                <div class="form-group">
@@ -62,7 +62,7 @@
               <div class="form-group">
                   <label class="control-label col-xs-5"></label>
                   <div class="col-xs-2">
-                   <%= f.submit "登録" ,class: "btn btn-outline-info"%>
+                   <%= f.submit "編集する" ,class: "btn btn-outline-info"%>
                   </div>
               </div>
               <% end %>

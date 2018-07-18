@@ -6,7 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
   </head>
 
 
@@ -17,10 +16,14 @@
    <%= link_to "ドコネル", root_path ,:style =>"color:#007b43;" %>
    </div>
 　　 <div class="head-right">
+        <div class="head-links">
+          <%= search_form_for @q ,url: spots_search_path ,html:{class: 'form-inline'} do |f| %>
+            <%= f.text_field :spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont, class: "search-form form-control",:size => '30', placeholder: 'ネドコを探す' %>
+            <%= f.submit "検索", class: 'btn btn-outline-success' %>
+          <% end %>
+        </div>
        <div class="head-links"><%= link_to "都道府県から探す" ,areas_path ,:style => "color:#007b43;" %>
          </div>
-        <div class="head-links" style="color:#007b43;">検索
-        </div>
          <% if user_signed_in? %>
             <div class="head-links"><%= link_to "マイページ" ,user_path(current_user), :style => "color:#007b43;" %>
             </div>

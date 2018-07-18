@@ -57,6 +57,12 @@
 .add-btn a {
 	display: inline-block;;
 }
+.add-btn:hover {
+	-webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    opacity:none;
+}
 .japan-map {
 	width:800px;
 	margin:0 auto;
@@ -129,6 +135,7 @@
 	background-color: #cccccc;
 	margin-left:120px;
 	float: left;
+	text-align: center;
 }
 .spot-show-share {
 	list-style: none;
@@ -139,21 +146,48 @@
 }
 .discription {
 	width:660px;
-
 }
 .head-user {
 	float:right;
 }
 
+.no-comment {
+	height:100px;
+	width:600px;
+}
+.comment {
+	height:100px;
+	width:750px;
+}
+.comment-user {
+	float:left;
+	width:600px;
+	border-bottom:solid 2px #99cc99;
+	padding-bottom:10px;
+	margin-bottom:15px;
+}
+.comment-delete {
+	width:70px;
+	float:right;
+}
+.comment-scroll {
+	overflow: scroll;
+	height:300px;
+	width:750px;
+}
+.comment-form {
+	margin-bottom:30px;
+}
+.comment-content {
+	padding-left:15px;
+}
 
-
-
-
-
-
-
-
-
+/*spot_search----------------------*/
+.reslut {
+	float:right;
+}
+.button-type {
+}
 
 
 
