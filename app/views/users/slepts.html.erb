@@ -1,14 +1,16 @@
 <div class="back-ground ">
 	<div class="main-space">
 		<div class="section-head">
-            ネタ一覧
+            <h3>ネタ一覧</h3>
           </div>
 			<div class="main-content clearfix">
 				<div class="index-image">
 				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
+				<h4><%= spot.spot_name %></h4>
+				<p><%= spot.prefecture.prefecture_name %></p>
+				<p><%= spot.spot_address %></p>
+				<p>タイプ：<%= spot.type %></p>
+				<p>[<%= spot.discription %>]</p>
 			</div>
 			<div class="main-content clearfix">
 				<div class="index-image">

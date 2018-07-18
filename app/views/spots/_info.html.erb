@@ -1,0 +1,68 @@
+<div class="spot-info-box">
+	 	<dl>
+	 	  <dt>タイプ
+	      </dt>
+	      <dd><%= spot.type %>
+	      </dd>
+	 	</dl>
+	 	<dl>
+	 	  <dt>東屋
+	      </dt>
+	      <dd>
+	      	<% if spot.pavilion == "あり" %>
+	      	  ⭕️
+	      	  <% elsif spot.pavilion == "なし" %>
+	      	  ❌
+	      	   <% else %>
+	      	   −
+	      	   <% end %>
+	      </dd>
+	 	</dl>
+	 	<dl>
+	 	  <dt>24時間休憩所
+	      </dt>
+	      <dd><% if spot.rest_area == "あり" %>
+	      	  ⭕️
+	      	  <% elsif spot.rest_area == "なし" %>
+	      	  ❌
+	      	   <% else %>
+	      	   −
+	      	   <% end %>
+	      </dd>
+	 	</dl>
+	 	<dl>
+	 	  <dt>屋根
+	      </dt>
+	      <dd><% if spot.roof == "あり" %>
+	      	  ⭕️
+	      	  <% elsif spot.roof == "なし" %>
+	      	  ❌
+	      	   <% else %>
+	      	   −
+	      	   <% end %>
+	      </dd>
+	 	</dl>
+	 	<dl>
+	 	  <dt>トイレ
+	      </dt>
+	      <dd><% if spot.toilet == "あり" %>
+	      	  ⭕️
+	      	  <% elsif spot.toilet == "なし" %>
+	      	 ❌
+	      	   <% else %>
+	      	   −
+	      	   <% end %>
+	      </dd>
+	 	</dl>
+	 	<dl>
+	 	  <dt>独立水道
+	      </dt>
+	      <dd><% if spot.watar == "あり" %>
+	      	  ⭕️
+	      	  <% elsif spot.watar == "なし" %>
+	      	  ❌
+	      	   <% else %>
+	      	   −
+	      	   <% end %>
+	 	</dl>
+	 </div>
