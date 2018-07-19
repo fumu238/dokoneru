@@ -10,6 +10,22 @@
 			<h3><%= @spot.spot_name %></h3>
 			<h4><%= @spot.prefecture.prefecture_name %></h4>
 		</div>
+
+		<div class="content-space clearfix">
+<!-- favorite--------------------------------------------- -->
+		  <div class="favorite-box">
+		   	<span id="favorite<%= @spot.id %>">
+           		<%= render partial: 'favorite', locals: {spot: @spot} %>
+         	</span>
+		 </div>
+		 <div class="favorite-box">
+			<span id="slept<%= @spot.id %>">
+           		<%= render partial: 'slept', locals: {spot: @spot} %>
+         	</span>
+		  </div>
+<!-- --------------------------------------------------- -->
+		</div>
+
 		  <div class="content-space clearfix">
 			<div class="spot-h3">
 			    画像ギャラリー
@@ -17,12 +33,17 @@
 				<div class="edit-button">
 				 	<%= link_to "画像投稿", new_spot_spot_image_path(@spot), class: "btn btn-outline-warning" %>
 				  </div>
+				  	<% if @spot.spot_images.blank? %>
+				  	 	<div class="no-comment">
+				  			画像を投稿しませんか?
+				  		</div>
+				  	<% end %>
 				  <% @spot.spot_images.each do |spot_image| %>
 				   <div class="spot-image-box">
 			 	     <div class="spot-image">
 			 	     	<%= attachment_image_tag spot_image, :image, :fill, 360, 270 , format: 'jpeg' %>
 			       </div>
-			     <%= spot_image.image_discription %>
+			     ○<%= spot_image.image_discription %>
 			  </div>
 			  <% end %>
 		</div>

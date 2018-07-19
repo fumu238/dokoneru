@@ -12,9 +12,9 @@
 			 <div class="user-info-space clearfix">
 			 		<div class="user-info-line"><%= link_to "登録情報の確認", edit_user_path, :style => "color:gray;" %>
 			 		</div>
-			 		<div class="user-info-line"><%= link_to "お気に入り一覧", favorites_path ,:style => "color:gray;" %>
+			 		<div class="user-info-line"><%= link_to "お気に入りネドコ一覧", users_favorites_path(@user) ,:style => "color:gray;" %>
 			 		</div>
-			 		<div class="user-info-line"><%= link_to "ネタネドコ一覧", slepts_path, :style => "color:gray;"  %>
+			 		<div class="user-info-line"><%= link_to "宿泊済みネドコ一覧", users_slepts_path(@user), :style => "color:gray;"  %>
 			 		</div>
 			 </div>
 		 <div class="content-space">
@@ -51,7 +51,8 @@
 <script>
 Chart.scaleService.updateScaleDefaults('linear', {
     ticks: {
-        min: 0
+        min: 0,
+        max: 10
     }
 });
 var ctx = document.getElementById("myBarChart").getContext('2d');
@@ -60,9 +61,29 @@ var myBarChart = new Chart(ctx, {
     data: {
         labels: ["北海道","東北","関東","北陸・甲信越","東海","関西","中国","四国","九州"],
         datasets: [{
-            label: "宿泊データ",
-            data: [1,2,3,4,5,6,7,8,9,10],
+            label: "宿泊済み",
+            data: [<%= @hokkaidos %>,
+            <%= @tohokus %>,
+            <%= @kantos %>,
+            <%= @hokurikus %>,
+            <%= @tokais %>,
+            <%= @kansais %>,
+            <%= @chugokus %>,
+            <%= @sikokus %>,
+            <%= @kyushus %>],
             backgroundColor: "green",
+        },{
+            label: "お気に入り",
+            data: [<%= @hokkaidof %>,
+            <%= @tohokuf %>,
+            <%= @kantof %>,
+            <%= @hokurikuf %>,
+            <%= @tokaif %>,
+            <%= @kansaif %>,
+            <%= @chugokuf %>,
+            <%= @sikokuf %>,
+            <%= @kyushuf %>],
+            backgroundColor: "orange",
         }]
     },
     options: {

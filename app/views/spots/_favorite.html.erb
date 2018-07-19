@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+	<% if spot.favorite_user(current_user) %>
+		<%= link_to spot_favorites_path(spot),method: :delete , remote: true do %>
+		    <div class="favorite-slept green">
+		   		お気に入りネドコから外す
+			</div>
+		 <% end %>
+	<% else %>
+		<%= link_to spot_favorites_path(spot),method: :post, remote: true do %>
+			<div class="favorite-slept">
+		   		お気に入りネドコに登録
+			</div>
+		<% end %>
+	<% end %>
+<% else %>
+	<div class="favorite-slept">
+		お気に入りネドコに登録
+	</div>
+<% end %>

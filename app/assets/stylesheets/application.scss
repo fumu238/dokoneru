@@ -15,9 +15,9 @@
  */
  @import "bootstrap";
 
-/*a {
+a {
    text-decoration: none !important;
-}*/
+}
 * {
   margin: 0;
   padding: 0;
@@ -29,6 +29,7 @@
   display: block;
   clear: both;
 }
+
 
 /*application_html-----------------*/
 header {
@@ -253,6 +254,10 @@ body {
 	float:left;
 	margin-right:10px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+}
+.index-info{
+	float:left;
+	width:400px;
 }
 .page-space {
 	height:100px;
