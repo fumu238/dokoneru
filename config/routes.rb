@@ -20,16 +20,17 @@ Rails.application.routes.draw do
   # resources :prefectures, only: [:show]
 
   resources :spots do
-  resources :spot_images, only:[:new, :create, :edit, :destroy]
+  resource :favorites, only: [:create, :destroy]
+  resource :slepts, only: [:create, :destroy]
+  resources :spot_images, only:[:new, :create, :destroy]
   resource :post_comments, only: [:create, :destroy]
-
   end
   # resources :favorites
   # resources :slepts
 
 # 一時的↓-----------------------------------
-  get "/slepts" => "users#slepts"
-  get "/favorites" => "users#favorites"
+  get "users/:user_id/slepts" => "users#slepts" ,as: "users_slepts"
+  get "users/:user_id//favorites" => "users#favorites", as: "users_favorites"
 # ------------------------------------------
   root "spots#index"
   get "/areas" => "prefectures#areas"

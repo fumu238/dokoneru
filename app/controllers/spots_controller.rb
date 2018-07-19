@@ -42,16 +42,17 @@ class SpotsController < ApplicationController
 	end
 
 	def search
-		 @words = params[:q].delete(:spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont) if params[:q].present?
-	     if @words.present?
-	      params[:q][:groupings] = []
-	      @words.split(/[ 　]/).each_with_index do |word, i|
-	      params[:q][:groupings][i] = { spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont: word }
-	       end
-	     end
-	    @word = params[:q][:groupings][i]
 		@q = Spot.ransack(params[:q])
-		@spots = @q.result
+	    @spots = @q.result(distinct: true)
+
+	    words = params[:q].delete(:spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont) if params[:q].present?
+		  if words.present?
+		    params[:q][:groupings] = []
+		    words.split(/[ 　]/).each_with_index do |word, i|
+		      params[:q][:groupings][i] = { spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont: word }
+		    end
+		  end
+	    @words = words
 	end
 
 	private

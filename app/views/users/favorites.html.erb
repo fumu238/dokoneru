@@ -1,44 +1,24 @@
 <div class="back-ground ">
 	<div class="main-space">
 		<div class="section-head">
-             お気に入りネドコ
+             <h3><%= @user.nick_name %>さんのお気に入りネドコ</h3>
           </div>
+			<% @favorite.each do |favorite| %>
+			<%= link_to spot_path(favorite.spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
+				<% favorite.spot.spot_images.first(1).each do |spot_image| %>
 				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
+					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
+				  </div>
+				  <% end %>
+				<h4><%= favorite.spot.spot_name %></h4>
+				<p><%= favorite.spot.prefecture.prefecture_name %></p>
+				<p><%= favorite.spot.spot_address %></p>
+				<p>タイプ：<%= favorite.spot.type %></p>
+				<p>[<%= favorite.spot.discription %>]</p>
 			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-			<div class="main-content clearfix">
-				<div class="index-image">
-				</div>
-				<h4>〇〇公園</h4>
-				<p>〇〇県〇〇市〇〇</p>
-				タイプ：公園
-			</div>
-
+			<% end %>
+		<% end %>
 		   <div class="page-space">
 		   	①②③
 		</div>

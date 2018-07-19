@@ -11,4 +11,12 @@ class User < ApplicationRecord
 
          attachment :profile_image
          attachment :background_image
+
+  # def favorite_spot(spot_id)
+  #     favorites.where(spot_id: [:spot][:spot_id])
+  # end
+
+  # def slept_spot(spot_id)
+  #     slepts.where(spot_id: [:spot][:spot_id])
+  # end
 end

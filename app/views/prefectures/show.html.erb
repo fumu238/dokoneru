@@ -9,7 +9,7 @@
 			<div class="main-content clearfix">
 				<% spot.spot_images.first(1).each do |spot_image| %>
 				<div class="index-image">
-					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
+					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
 				  </div>
 				  <% end %>
 				<h4><%= spot.spot_name %></h4>
