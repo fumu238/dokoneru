@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -63,3 +63,4 @@ gem "kaminari"
 gem 'bootstrap', '~> 4.1.1'
 gem 'seed-fu', '~> 2.3'
 gem 'chart-js-rails', '~> 0.1.4'
+gem 'pg', group: :production
