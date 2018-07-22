@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "areas", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "area_name"
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "spot_id"
@@ -70,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.integer "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_discription"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -109,9 +102,6 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.boolean "delete_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "profile_image_id"
-    t.string "background_image_id"
-    t.string "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
