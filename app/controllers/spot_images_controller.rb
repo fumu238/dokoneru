@@ -9,6 +9,7 @@ class SpotImagesController < ApplicationController
 		spot_image = SpotImage.new(spot_image_params)
 		spot = Spot.find(params[:spot_id])
 		spot_image.spot_id = spot.id
+		# binding.pry
 	    if spot_image.save
 		redirect_to new_spot_spot_image_path(spot)
 		else

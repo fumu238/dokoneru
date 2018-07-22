@@ -37,8 +37,9 @@ class SpotsController < ApplicationController
 	end
 
 	def destroy
-		spot = Spot.find_by(params[:spot_name])
+		spot = Spot.find(params[:id])
 		spot.destroy
+		redirect_to root_path
 	end
 
 	def search

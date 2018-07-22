@@ -3,7 +3,7 @@
 		<div class="section-head">
              <h3><%= @user.nick_name %>さんのお気に入りネドコ</h3>
           </div>
-			<% @favorite.each do |favorite| %>
+			<% @user.favorites.each do |favorite| %>
 			<%= link_to spot_path(favorite.spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
 				<% favorite.spot.spot_images.first(1).each do |spot_image| %>

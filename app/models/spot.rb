@@ -6,7 +6,7 @@ class Spot < ApplicationRecord
 	belongs_to :prefecture
 	belongs_to :area
 	belongs_to :user
-	attachment :image
+	# attachment :image
 	self.inheritance_column = :_type_disabled
 
 	def favorite_user(user)

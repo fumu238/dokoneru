@@ -3,7 +3,7 @@
 		<div class="section-head">
             <h3><%= @user.nick_name %>さんの宿泊済みネドコ</h3>
           </div>
-			<% @slept.each do |slept| %>
+			<% @user.slepts.each do |slept| %>
 			<%= link_to spot_path(slept.spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
 				<% slept.spot.spot_images.first(1).each do |spot_image| %>

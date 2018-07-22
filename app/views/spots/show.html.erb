@@ -134,7 +134,7 @@
 		 	 <%= @spot.spot_name %>
 		 </div>
 		 <% if admin_signed_in? || @spot.user %>
-		 <%= link_to "投稿削除",spot_path ,class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
+		 <%= link_to "投稿削除",spot_path(@spot), method: :delete ,class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
 		 <% end %>
 	</div>
 </div>

@@ -6,8 +6,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@slept = Slept.where(params[:id])
-		@favorite = Favorite.where(params[:id])
 
 		@hokkaidof = 0
 		@tohokuf = 0
@@ -19,7 +17,7 @@ class UsersController < ApplicationController
 		@sikokuf = 0
 		@kyushuf = 0
 		
-		@favorite.each do |f|
+		@user.favorites.each do |f|
 			if f.spot.area_id == 1
 				@hokkaidof += 1
 			elsif
@@ -59,7 +57,7 @@ class UsersController < ApplicationController
 		@sikokus = 0
 		@kyushus = 0
 
-		@slept.each do |s|
+		@user.slepts.each do |s|
 			if s.spot.area_id == 1
 				@hokkaidos += 1
 			elsif
