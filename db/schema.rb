@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716100937) do
+ActiveRecord::Schema.define(version: 20180722072014) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "area_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -64,6 +70,7 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.integer "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_discription"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -102,6 +109,8 @@ ActiveRecord::Schema.define(version: 20180716100937) do
     t.boolean "delete_flag", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "spot_id"
+    t.string "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
