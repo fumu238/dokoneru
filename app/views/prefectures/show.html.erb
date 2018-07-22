@@ -4,7 +4,7 @@
 			<h3><%= @prefecture.prefecture_name %>でネドコを探す</h3>
 		</div>
 	
-		<% @prefecture.spots.each do |spot| %>
+		<% @spots.each do |spot| %>
 			<%= link_to spot_path(spot), :style=>"text-decoration: none;" do %>
 			<div class="main-content clearfix">
 				<% spot.spot_images.first(1).each do |spot_image| %>
@@ -21,7 +21,7 @@
 			<% end %>
 		<% end %>
 		   <div class="page-space">
-		   	①②③
+		   	<%= paginate @spots %>
 		</div>
 	</div>
 </div>

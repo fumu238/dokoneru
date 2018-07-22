@@ -261,7 +261,15 @@ body {
 }
 .page-space {
 	height:100px;
+	width:300px;
 	text-align: center;
 }
-
+.page {
+	display:inline-block;
+  	border:solid 1px;
+  	border-radius: 30px;
+  	color:white;
+  	padding:2px 8px;
+  	background-color: #99cc99;
+}
 
