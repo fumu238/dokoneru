@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 	<% if spot.slept_user(current_user) %>
 		<%= link_to spot_slepts_path(spot),method: :delete , remote: true do %>
-		    <div class="favorite-slept blue">
+		    <div class="favorite-slept green">
 		   		宿泊済みネドコから外す
 			</div>
 		 <% end %>
