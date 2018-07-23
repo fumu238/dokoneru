@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def index
-		@user = User.all
+		@user = User.all.page(params[:page]).per(5)
 	end
 
 	def show
@@ -100,12 +100,12 @@ class UsersController < ApplicationController
 
 	def favorites
 		@user = User.find(params[:user_id])
-		@favorite = Favorite.where(params[:user_id])
+		@spots = @user.favorites.page(params[:page]).per(2).order("created_at DESC")
 	end
 
 	def slepts
 		@user = User.find(params[:user_id])
-		@slept = Slept.where(params[:user_id])
+		@spots = @user.slepts.page(params[:page]).per(2).order("created_at DESC")
 	end
 
 	private

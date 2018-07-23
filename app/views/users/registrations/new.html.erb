@@ -25,6 +25,11 @@
                   </div>
               </div>
               <div class="form-group">
+                <label>都道府県　<span class="red">※必須</span></label>
+                <% @prefecture = Prefecture.all %>
+                  <%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name,{ prompt: "選択"}, {class: "form-control"} %>
+                 </div>
+              <div class="form-group">
                   <label class="control-label col-xs-2">メールアドレス　<span class="red">※必須</span></label>
                   <div class="col-xs-5">
                     <%= f.email_field :email, autofocus: true, class: "form-control" %>

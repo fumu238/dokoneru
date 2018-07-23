@@ -43,17 +43,24 @@ class SpotsController < ApplicationController
 	end
 
 	def search
-		@q = Spot.ransack(params[:q])
-	    @spots = @q.result(distinct: true)
-
-	    words = params[:q].delete(:spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont) if params[:q].present?
-		  if words.present?
-		    params[:q][:groupings] = []
-		    words.split(/[ 　]/).each_with_index do |word, i|
-		      params[:q][:groupings][i] = { spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont: word }
-		    end
-		  end
-	    @words = words
+		 groupings =[]
+	    if params[:q].present?
+	    	@words = params[:q][:spot_name_or_spot_address_or_type_or_area_area_name_or_prefecture_prefecture_name_cont].split(/[\p{blank}\s]+/)
+	    	@words.each { |value| groupings.push(spot_name_or_spot_address_or_type_or_area_area_name_or_prefecture_prefecture_name_cont: value) }
+	    end
+	    @q = Spot.ransack(
+		       combinator: 'or',
+		       groupings: groupings
+		   )
+	    @spots = @q.result(distinct: true).page(params[:page]).per(2)
+		# @q = Spot.ransack(params[:q])
+	   #  @words = params[:q].delete(:spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont) if params[:q].present?
+		  # if @words.present?
+		  #   params[:q][:groupings] = []
+		  #   @words.split(/[ 　]/).each_with_index do |word, i|
+		  #     params[:q][:groupings][i] = { spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont: word }
+		  #   end
+		  # end
 	end
 
 	private
@@ -61,5 +68,4 @@ class SpotsController < ApplicationController
 		params.require(:spot).permit(:spot_name, :spot_address, :discription, :type, :rest_area, :pavilion,
 									:watar, :toilet, :roof, :prefecture_id, :area_id, :user_id)
 	end
-
 end

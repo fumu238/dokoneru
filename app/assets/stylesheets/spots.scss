@@ -232,10 +232,10 @@
 
 /*spot_search----------------------*/
 .reslut {
-	float:right;
+	text-align: right;
+	padding-top:10px;
 }
-.button-type {
-}
+
 
 
 /*spot_new------------------------------*/
@@ -246,7 +246,6 @@
 }
 .spot-image-new {
 	float:left;
-	width:200px;
 	height:150px;
 }
 .image-new-discription {

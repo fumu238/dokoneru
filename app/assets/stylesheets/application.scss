@@ -103,6 +103,19 @@ body {
 .red {
 	color:red;
 }
+.index-image {
+	height:180px;
+	width:240px;
+	background-color: black;
+	border:solid 1px #f5f5f5;
+	float:left;
+	margin:0 10px 10px 0;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+}
+.index-info{
+	float:left;
+	width:500px;
+}
 /*----------------------------*/
 
 
@@ -196,7 +209,7 @@ body {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
-	border:solid 2px black;
+	border:solid 1px #99cc99;
 }
 .prefecture-list {
 	float:left;
@@ -215,7 +228,7 @@ body {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
-	border:solid 2px black;
+	border:solid 1px #99cc99;
 }
 .prefecture-list-big {
 	float:left;
@@ -234,7 +247,7 @@ body {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
-	border:solid 2px black;
+	border:solid 1px #99cc99;
 }
 
 
@@ -247,29 +260,25 @@ body {
 	font-size: 25px;
 	margin-bottom:50px;
 }
-.index-image {
-	height:180px;
-	width:240px;
-	border:solid 1px #f5f5f5;
-	float:left;
-	margin:0 10px 10px 0;
-	box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
-}
-.index-info{
-	float:left;
-	width:400px;
-}
 .page-space {
 	height:100px;
-	width:300px;
+	width:600px;
 	text-align: center;
+	margin: 0 auto;
 }
-.page {
+.page a {
 	display:inline-block;
-  	border:solid 1px;
+  	border:solid 3px orange;
   	border-radius: 30px;
-  	color:white;
-  	padding:2px 8px;
-  	background-color: #99cc99;
+  	padding:4px 10px;
+  	color: gray;
+}
+.current {
+	display:inline-block;
+  	background-color: orange;
+  	border:solid 3px orange;
+  	border-radius: 30px;
+  	padding:4px 10px;
+  	color: white;
 }
 

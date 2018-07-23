@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   }
   get "/spots/search" => "spots#search"
   resources :users
-  # resources :prefectures, only: [:show]
 
   resources :spots do
   resource :favorites, only: [:create, :destroy]
@@ -25,8 +24,6 @@ Rails.application.routes.draw do
   resources :spot_images, only:[:new, :create, :destroy]
   resource :post_comments, only: [:create, :destroy]
   end
-  # resources :favorites
-  # resources :slepts
 
 # 一時的↓-----------------------------------
   get "users/:user_id/slepts" => "users#slepts" ,as: "users_slepts"

@@ -6,15 +6,17 @@
 /*user_show---------------------------*/
 
 .user-header-image {
-	height:300px;
+	height:290px;
+	width:780px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
 .user-icon {
 	position:absolute;
 	height:154px;
 	height:154px;
-	border:solid 4px gray;
 	top:210px;
 	left:400px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
 .user-name {
 	background-color: white;
@@ -24,13 +26,14 @@
 	margin-top:10px;
 	position:absolute;
 	top:350px;
-	left:403px;
+	left:400px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
 .user-info-space {
 	height:50px;
 	border:solid 4px gray;
 	border-radius: 5px;
+	margin-top:10px;
 }
 
 .user-info-line:nth-child(2){

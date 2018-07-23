@@ -18,7 +18,7 @@
 　　 <div class="head-right">
         <div class="head-links">
           <%= search_form_for @q ,url: spots_search_path ,html:{class: 'form-inline'} do |f| %>
-            <%= f.text_field :spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont, class: "search-form form-control",:size => '30', placeholder: 'ネドコを探す' %>
+            <%= f.text_field :spot_name_or_spot_address_or_type_or_area_area_name_or_prefecture_prefecture_name_cont, class: "search-form form-control",:size => '30', placeholder: 'ネドコを探す' %>
             <%= f.submit "検索", class: 'btn btn-outline-success' %>
           <% end %>
         </div>
@@ -44,6 +44,7 @@
 <div>
 <%= link_to 'ログアウトする',  destroy_admin_session_path, method: :delete,:style => "color:white;" %>
 </div>
+<%= link_to "ユーザー一覧" ,users_path,:style => "color:white;" %>
 </footer>
 <!--  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.japan-map.min.js"></script> -->
