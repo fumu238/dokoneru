@@ -4,19 +4,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :favorites, dependent: :destroy
-         has_many :slepts, dependent: :destroy
-         has_many :post_comments, dependent: :destroy
-         has_many :spots
+   has_many :favorites, dependent: :destroy
+   has_many :slepts, dependent: :destroy
+   has_many :post_comments, dependent: :destroy
+   has_many :spots
+   belongs_to :prefecture
 
-         attachment :profile_image
-         attachment :background_image
+   attachment :profile_image
+   attachment :background_image
 
-  # def favorite_spot(spot_id)
-  #     favorites.where(spot_id: [:spot][:spot_id])
-  # end
+   validates :user_name, presence: true
+   validates :name_phonetic, presence: true
+   validates :nick_name, presence: true
+   validates :prefecture_id, presence: true
 
-  # def slept_spot(spot_id)
-  #     slepts.where(spot_id: [:spot][:spot_id])
-  # end
+
+   def active_for_authentication?
+    super && !delete_flag?
+  end
 end

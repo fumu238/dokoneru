@@ -1,0 +1,15 @@
+<div class="comment-modal">
+	<div class="comment-box clearfix">
+		<div class="modal-off">
+			❌
+		　</div>
+			<div class="comment-modal-text">
+			</div>
+				<div class="comment-form">
+			      <%= form_for [spot,post_comment] do |f| %>
+			      <%= f.text_field :comment ,class: "form-control" %>
+			      <%= f.submit "コメントする",class: "btn btn-outline-success" %>
+			      <% end %>
+				</div>
+	</div>
+</div>

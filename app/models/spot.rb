@@ -9,6 +9,10 @@ class Spot < ApplicationRecord
 	# attachment :image
 	self.inheritance_column = :_type_disabled
 
+	validates :spot_name, presence: true
+	validates :type, presence: true
+
+
 	def favorite_user(user)
 		favorites.find_by(user_id: user.id)
 	end

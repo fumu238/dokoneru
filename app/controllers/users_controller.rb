@@ -1,7 +1,21 @@
 class UsersController < ApplicationController
-
+	before_action :authenticate_user!, only:[:index, :slepts, :favorites]
+	# layout "user_index", only: [:index]
 	def index
-		@user = User.all
+		@user_search = User.ransack(params[:user], search_key: :user)
+		@users = @user_search.result(distinct: true).page(params[:page]).per(5)
+	end
+
+	def delete_flag
+		user = User.find(params[:id])
+		user.update(delete_flag: "true")
+		redirect_to users_path
+	end
+
+	def return
+		user = User.find(params[:id])
+		user.update(delete_flag: "false")
+		redirect_to users_path
 	end
 
 	def show
@@ -100,18 +114,21 @@ class UsersController < ApplicationController
 
 	def favorites
 		@user = User.find(params[:user_id])
-		@favorite = Favorite.where(params[:user_id])
+		# @favorites = Favorite.where(params[:user_id]).page(params[:page]).per(5).order("created_at DESC")
+		@spots = @user.favorites.page(params[:page]).per(1).order("created_at DESC")
 	end
 
 	def slepts
 		@user = User.find(params[:user_id])
-		@slept = Slept.where(params[:user_id])
+		# @slepts = @user.slepts.page(params[:page]).per(5).order("created_at DESC")
+		@spots = @user.slepts.page(params[:page]).per(1).order("created_at DESC")
+
 	end
 
 	private
 	  def user_params
 	  	params.require(:user).permit(:user_name,:user_name, :name_phonetic, :nick_name, :introduction,
-	  		:sex, :age, :profile_image, :background_image, :introduction)
+	  		:sex, :age, :profile_image, :background_image, :introduction, :prefecture_id)
 	  end
 
 end

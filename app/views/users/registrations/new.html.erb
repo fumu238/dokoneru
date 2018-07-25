@@ -1,6 +1,7 @@
 <div class="back-ground">
     <div class="main-space">
       <div class="container">
+        <%= render "layouts/flash" %>
         <div class="section-head">
             <h4>ユーザー登録</h4>
            </div>
@@ -24,6 +25,11 @@
                     <%= f.text_field :nick_name, class: "form-control" %>
                   </div>
               </div>
+              <div class="form-group">
+                <label>都道府県　<span class="red">※必須</span></label>
+                <% @prefecture = Prefecture.all %>
+                  <%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name,{ prompt: "選択"}, {class: "form-control"} %>
+                 </div>
               <div class="form-group">
                   <label class="control-label col-xs-2">メールアドレス　<span class="red">※必須</span></label>
                   <div class="col-xs-5">

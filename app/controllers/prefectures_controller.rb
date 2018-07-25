@@ -5,5 +5,6 @@ class PrefecturesController < ApplicationController
 
 	def show
 		@prefecture = Prefecture.find_by(prefecture_name: params[:prefecture_name])
+		@spots = @prefecture.spots.page(params[:page])
 	end
 end

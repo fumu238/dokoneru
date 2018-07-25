@@ -33,17 +33,17 @@
 	background-image: url(add.jpg);
 }
 .add-text {
-	width:100%;
 	height:80px;
 	font-size: 24px;
 	border-radius: 8px;
 	background-color: white;
 	opacity: 0.8;
 	color:black;
+	line-height: 80px;
 }
 .add-btn {
 	width:300px;
-	height:180px;
+	height:150px;
 	background-color: white;
 	border:solid 3px black;
 	border-radius: 10px;
@@ -69,7 +69,6 @@
 }
 .top-new-arrivals{
 	width:800px;
-	text-align:center;
 	margin:50px auto 50px;
 }
 /*--------------------------------*/
@@ -131,18 +130,12 @@
 }
 .spot-basis-info {
 	width:500px;
-	height:250px;
+	height:150px;
 	background-color: #cccccc;
 	margin-left:120px;
 	float: left;
 	text-align: center;
-}
-.spot-show-share {
-	list-style: none;
-	text-align: center;
-}
-.spot-show-share li {
-	display: inline-block;
+	line-height: 35px;
 }
 .discription {
 	width:660px;
@@ -151,8 +144,11 @@
 	float:right;
 }
 
+
+
+
+/*コメント-----------------------------------*/
 .no-comment {
-	height:100px;
 	width:600px;
 }
 .comment {
@@ -176,11 +172,63 @@
 	width:750px;
 }
 .comment-form {
-	margin-bottom:30px;
+
 }
 .comment-content {
 	padding-left:15px;
 }
+.comment-modal {
+	width:100%;
+	height:100%;
+	position:fixed;
+	background-color: rgba(0,0,0,0.6);
+	z-index: 2;
+	top:0;
+	left:0;
+	display: none;
+}
+.comment-box {
+	width:500px;
+	margin:200px auto 0;
+	border:solid 1px;
+}
+.comment-modal-text {
+	background-color: black;
+	color:white;
+	font-size: 25px;
+}
+.open {
+	width:120px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    border:solid 1px;
+    padding:3px 10px;
+    border-radius:10px;
+    margin: 0 auto;
+}
+.open:hover {
+	-webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.modal-off {
+	float:right;
+	font-size: 26px;
+	color:white;
+}
+.modal-off:hover {
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -191,14 +239,12 @@
 /*お気に入りーーーーーーーーーーーーーーーーーー*/
 .favorite-box {
 	float:left;
-	width:380px;
-	padding-left:50px;
-	padding-right:50px;
+	margin-left:120px;
 }
 .favorite-slept {
 	border:solid 1px gray;
 	border-radius: 30px;
-	padding:8px;
+	padding:8px 15px;
 	text-align: center;
 }
 .favorite-slept a {
@@ -232,10 +278,10 @@
 
 /*spot_search----------------------*/
 .reslut {
-	float:right;
+	text-align: right;
+	padding-top:10px;
 }
-.button-type {
-}
+
 
 
 /*spot_new------------------------------*/
@@ -246,7 +292,6 @@
 }
 .spot-image-new {
 	float:left;
-	width:200px;
 	height:150px;
 }
 .image-new-discription {

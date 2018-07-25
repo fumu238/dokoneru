@@ -1,3 +1,4 @@
+<%= render "layouts/flash" %>
 <div class="top-main">
 	<div class="top-main-box">
 		外で寝ても、いいですか？
@@ -22,27 +23,46 @@
 
 <div id="map" style="width:1000px; margin-left:180px">
  </div>
-
-<div class="top-new-arrivals">
-  	<div class="section-head">
-		 <h3>新着寝床一覧</h3>
-	  </div>
+<div class="back-ground ">
+	<div class="main-space top-back">
+  			<div class="section-head">
+		 		<h3>新着寝床一覧</h3>
+	  		</div>
 	  	<% @spot.first(5).each do |spot| %>
-	  	<%= link_to spot_path(spot), :style=>"text-decoration: none;" do %>
-			<div class="main-content clearfix">
-			 <% spot.spot_images.first(1).each do |spot_image| %>
-				<div class="index-image">
-					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
-				    </div>
-				      <% end %>
-				  <div class="index-info">
-					<h4><%= spot.spot_name %></h4>
-					<p><%= spot.prefecture.prefecture_name %></p>
-					<p><%= spot.spot_address %></p>
-					<p>タイプ：<%= spot.type %></p>
-					<p>[<%= spot.discription %>]</p>
+	  		<%= link_to spot_path(spot) do %>
+				<div class="main-content clearfix">
+					<% if spot.spot_images.present? %>
+			 			<% spot.spot_images.first(1).each do |spot_image| %>
+							<div class="index-image">
+								<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
+				    		</div>
+				    	<% end %>
+				    <% else %>
+				    	<div class="index-image">
+				    		<%= image_tag('no.jpg' ,  :size => '240x180' ) %>
+				    	</div>
+				    <% end %>
+					  <div class="index-info">
+						<h4><%= spot.spot_name %></h4>
+						<p><%= spot.prefecture.prefecture_name %></p>
+						<p><%= spot.spot_address %></p>
+						<p>タイプ：<%= spot.type %></p>
+						<p>[<%= spot.discription.truncate(30) %>]</p>
+					  </div>
+				 </div>
+			<% end %>
+		 	<div class="index-favorite clearfix">
+				<div class="favorite-box">
+				   	<span id="favorite<%= spot.id %>">
+		           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
+		         	</span>
+				 </div>
+				 <div class="favorite-box">
+					<span id="slept<%= spot.id %>">
+		           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
+		         	</span>
 				  </div>
 				</div>
-			<% end %>
 		<% end %>
- </div>
+	</div>
+</div>

@@ -2,66 +2,103 @@
 	<div class="main-space">
 		<div class="section-head">
             <h3>ネドコ検索</h3><br>
-            <div class="reslut">
-            	"<%= @words %>"の検索結果 <%= @spots.count %>件
-            </div>
            <div class="search">
             さらに条件で絞り込む
 
             <%= search_form_for @q ,url: spots_search_path ,html:{class: 'form-inline'} do |f| %>
             <div class="container">
-	            <div class="form-group">
-	            タイプ
-		            <label>道の駅</label>
-		            <%= f.radio_button :type_eq ,"道の駅"%>
-		            <label>公園</label>
-		            <%= f.radio_button :type_eq ,"公園"%>
-		            <label>無料キャンプ場</label>
-		            <%= f.radio_button :type_eq ,"無料キャンプ場"%>
-		        </div>
-		        <div class="form-group">
-		        	東屋
-		        	 <label>あり</label>
-		            <%= f.radio_button :pavilion_eq ,"あり"%>
-		            <label>なし</label>
-		            <%= f.radio_button :pavilion_eq ,"なし"%>
-		        </div>
-		        <div class="form-group">
-		        	24時間休憩所
-		        	 <label>あり</label>
-		            <%= f.radio_button :rest_area_eq ,"あり"%>
-		            <label>なし</label>
-		            <%= f.radio_button :rest_area_eq ,"なし"%>
+		        ネドコタイプ
+              	<div class="btn-group" data-toggle="buttons">
+              	  <!-- <label for="type" class="btn btn-default">
+		            <%= f.radio_button :type_eq , nil %>指定なし
+		          </label> -->
+		          <label for="type" class="btn btn-default">
+		            <%= f.radio_button :type_eq ,"道の駅" %>道の駅
+		          </label>
+		          <label for="type"class="btn btn-default">
+		            <%= f.radio_button :type_eq ,"公園"%>公園
+		          </label>
+		          <label for="type"class="btn btn-default">
+		            <%= f.radio_button :type_eq ,"無料キャンプ場"%>無料キャンプ場
+		          </label>
+		        </div><br>
+		        東屋　　　　
+		        <div class="btn-group" data-toggle="buttons">
+		        	 <!-- <label for="pavilion" class="btn btn-default">
+		            <%= f.radio_button :pavilion_eq  , nil %>指定なし
+		          </label> -->
+		          <label for="pavilion" class="btn btn-default">
+		            <%= f.radio_button :pavilion_eq ,"あり" %>あり
+		          </label>
+		          <label for="pavilion"class="btn btn-default">
+		            <%= f.radio_button :pavilion_eq ,"なし"%>なし
+		          </label>
+		        </div><br>
+		        24時間休憩所
+		        <div class="btn-group" data-toggle="buttons">
+		        	 <!-- <label for="rest_area" class="btn btn-default">
+		            <%= f.radio_button :rest_area_eq  , nil %>指定なし
+		          </label> -->
+		          <label for="pavilion" class="btn btn-default">
+		            <%= f.radio_button :rest_area_eq ,"あり" %>あり
+		          </label>
+		          <label for="pavilion"class="btn btn-default">
+		            <%= f.radio_button :rest_area_eq ,"なし"%>なし
+		          </label>
 		        </div>
 
-
 	            <div class="form-group">
-			            <%= f.text_field :spot_name_or_spot_address_or_area_area_name_or_prefecture_prefecture_name_cont, class: "search-form form-control",:size => '70', placeholder: 'ネドコを探す' %>
+			            <%= f.search_field :spot_name_or_spot_address_or_type_or_area_area_name_or_prefecture_prefecture_name_cont, class: "search-form form-control",:size => '75', placeholder: 'ネドコを探す' %>
 		            	<%= f.submit "検索", class: 'btn btn-outline-success' %>
 		         <% end %>
                 </div>
             </div>
-           </div>
+         </div>
+         	<div class="reslut">
+         		 結果 <%= @q.result.count %>件<br>
+            	全<%= @spots.total_pages %>ページ中 <%= @spots.current_page %>ページ目
+            </div>
         </div>
-	          <% @spots.each do |spot| %>
-		  	     <%= link_to spot_path(spot), :style=>"text-decoration: none;" do %>
-			 <div class="main-content clearfix">
-				  <% spot.spot_images.first(1).each do |spot_image| %>
-				<div class="index-image">
-					<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
-				 </div>
-				   <% end %>
-					<h4><%= spot.spot_name %></h4>
-					<p><%= spot.prefecture.prefecture_name %></p>
-					<p><%= spot.spot_address %></p>
-					<p>タイプ：<%= spot.type %></p>
-					<p>[<%= spot.discription %>]</p>
-			 </div>
+			<% @spots.each do |spot| %>
+		  	    <%= link_to spot_path(spot) do %>
+					<div class="main-content clearfix">
+			  	     	<% if spot.spot_images.present? %>
+				  			<% spot.spot_images.first(1).each do |spot_image| %>
+								<div class="index-image">
+									<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
+				 				</div>
+				   			<% end %>
+				   		<% else %>
+							<div class="index-image">
+								<%= image_tag('no.jpg',:size => '240x180') %>
+							</div>
+						<% end %>
+							<div class="index-info">
+								<h4><%= spot.spot_name %></h4>
+								<p><%= spot.prefecture.prefecture_name %></p>
+								<p><%= spot.spot_address %></p>
+								<p>タイプ：<%= spot.type %></p>
+								<p>[<%= spot.discription.truncate(30) %>]</p>
+							</div>
+					</div>
 				<% end %>
-			  <% end %>
-
-		   <div class="page-space">
-		   	①②③
+				<div>
+					<div class="index-favorite clearfix">
+						<div class="favorite-box">
+						   	<span id="favorite<%= spot.id %>">
+				           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
+				         	</span>
+						 </div>
+						 <div class="favorite-box">
+							<span id="slept<%= spot.id %>">
+				           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
+				         	</span>
+						  </div>
+						</div>
+					</div>
+			<% end %>
+		   		<div class="page-space">
+		   	<%= paginate @spots %>
 		</div>
 	</div>
 </div>

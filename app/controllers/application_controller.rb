@@ -8,13 +8,17 @@ class ApplicationController < ActionController::Base
     user_path(@user)
   end
 
+  def after_sign_in_path_for(resource)
+    user_path(@user)
+  end
+
   def search
       @q = Spot.ransack(params[:q])
   end
 
   protected
  def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :name_phonetic, :nick_name])
+   devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :name_phonetic, :nick_name, :prefecture_id])
    devise_parameter_sanitizer.permit(:account_update, keys: [:user_name, :name_phonetic, :nick_name])
  end
 

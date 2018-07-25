@@ -15,9 +15,13 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations',
     sessions:      'admins/sessions',
   }
+  # デリートフラグ---------------------------------------------------------
+  get "/users/:id/delete" => "users#delete_flag", as: "users_delete"
+  get "/users/:id/return" => "users#return", as: "users_return"
+  # デリートフラグ---------------------------------------------------------
+  
   get "/spots/search" => "spots#search"
   resources :users
-  # resources :prefectures, only: [:show]
 
   resources :spots do
   resource :favorites, only: [:create, :destroy]
@@ -25,8 +29,6 @@ Rails.application.routes.draw do
   resources :spot_images, only:[:new, :create, :destroy]
   resource :post_comments, only: [:create, :destroy]
   end
-  # resources :favorites
-  # resources :slepts
 
 # 一時的↓-----------------------------------
   get "users/:user_id/slepts" => "users#slepts" ,as: "users_slepts"
