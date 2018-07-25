@@ -3,6 +3,10 @@
 		<div class="section-head">
             <h3><%= @user.nick_name %>さんの宿泊済みネドコ</h3>
           </div>
+          <% if @user.slepts.count == 0 %>
+          	宿泊済みに登録されたネドコはありません。<br>
+          	宿泊したことのあるスポットを登録してみましょう。
+          <% end %>
 			<% @user.slepts.each do |slept| %>
 				<%= link_to spot_path(slept.spot) do %>
 					<div class="main-content clearfix">

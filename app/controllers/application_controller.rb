@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     user_path(@user)
   end
 
+  def after_sign_in_path_for(resource)
+    user_path(@user)
+  end
+
   def search
       @q = Spot.ransack(params[:q])
   end

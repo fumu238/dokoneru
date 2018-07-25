@@ -1,3 +1,4 @@
+<%= render "layouts/flash" %>
 <div class="top-main">
 	<div class="top-main-box">
 		外で寝ても、いいですか？
@@ -20,13 +21,13 @@
 	</div>
  </div>
 
-<!-- <div id="map" style="width:1000px; margin-left:180px"> -->
- <!-- </div> -->
-
-<div class="top-new-arrivals">
-  	<div class="section-head">
-		 <h3>新着寝床一覧</h3>
-	  </div>
+<div id="map" style="width:1000px; margin-left:180px">
+ </div>
+<div class="back-ground ">
+	<div class="main-space top-back">
+  			<div class="section-head">
+		 		<h3>新着寝床一覧</h3>
+	  		</div>
 	  	<% @spot.first(5).each do |spot| %>
 	  		<%= link_to spot_path(spot) do %>
 				<div class="main-content clearfix">
@@ -46,9 +47,22 @@
 						<p><%= spot.prefecture.prefecture_name %></p>
 						<p><%= spot.spot_address %></p>
 						<p>タイプ：<%= spot.type %></p>
-						<p>[<%= spot.discription %>]</p>
+						<p>[<%= spot.discription.truncate(30) %>]</p>
 					  </div>
-					</div>
+				 </div>
 			<% end %>
+		 	<div class="index-favorite clearfix">
+				<div class="favorite-box">
+				   	<span id="favorite<%= spot.id %>">
+		           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
+		         	</span>
+				 </div>
+				 <div class="favorite-box">
+					<span id="slept<%= spot.id %>">
+		           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
+		         	</span>
+				  </div>
+				</div>
 		<% end %>
- </div>
+	</div>
+</div>

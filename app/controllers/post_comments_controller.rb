@@ -4,8 +4,12 @@ class PostCommentsController < ApplicationController
 		spot = Spot.find(params[:spot_id])
 		comment = current_user.post_comments.new(post_comment_params)
 		comment.spot_id = spot.id
-		comment.save
+		if comment.save
 		redirect_to spot_path(spot)
+		else
+		flash[:danger] = "コメントが空では送信できません"
+		redirect_to spot_path(spot)
+		end
 	end
 
 	def destroy

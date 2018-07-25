@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations',
     sessions:      'admins/sessions',
   }
+  # デリートフラグ---------------------------------------------------------
+  get "/users/:id/delete" => "users#delete_flag", as: "users_delete"
+  get "/users/:id/return" => "users#return", as: "users_return"
+  # デリートフラグ---------------------------------------------------------
+  
   get "/spots/search" => "spots#search"
   resources :users
 

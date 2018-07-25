@@ -3,31 +3,47 @@
 		<div class="section-head">
 			<h3><%= @prefecture.prefecture_name %>でネドコを探す</h3>
 		</div>
+		<% if @spots.count == 0 %>
+		<%= @prefecture.prefecture_name %>のネドコはまだ登録されていません<br>
+		<%= link_to "登録", new_spot_path %>しませんか？
+		<% end %>
 	
-	<% @spots.each do |spot| %>
-		<%= link_to spot_path(spot) do %>
-			<div class="main-content clearfix">
-				<% if spot.spot_images.present? %>
-					<% spot.spot_images.first(1).each do |spot_image| %>
-						<div class="index-image">
-							<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
-					  	</div>
-					<% end %>
-				<% else %>
-					<div class="index-image">
-						<%= image_tag('no.jpg', size: '240x180') %>
+			<% @spots.each do |spot| %>
+				<%= link_to spot_path(spot) do %>
+					<div class="main-content clearfix">
+						<% if spot.spot_images.present? %>
+							<% spot.spot_images.first(1).each do |spot_image| %>
+								<div class="index-image">
+									<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
+							  	</div>
+							<% end %>
+						<% else %>
+							<div class="index-image">
+								<%= image_tag('no.jpg', size: '240x180') %>
+							</div>
+						<% end %>
+							<div class="index-info">
+								<h4><%= spot.spot_name %></h4>
+								<p><%= spot.prefecture.prefecture_name %></p>
+								<p><%= spot.spot_address %></p>
+								<p>タイプ：<%= spot.type %></p>
+								<p>[<%= spot.discription.truncate(30) %>]</p>
+							</div>
 					</div>
 				<% end %>
-					<div class="index-info">
-						<h4><%= spot.spot_name %></h4>
-						<p><%= spot.prefecture.prefecture_name %></p>
-						<p><%= spot.spot_address %></p>
-						<p>タイプ：<%= spot.type %></p>
-						<p>[<%= spot.discription %>]</p>
-					</div>
-			</div>
-		<% end %>
-	<% end %>
+					<div class="index-favorite clearfix">
+						<div class="favorite-box">
+						   	<span id="favorite<%= spot.id %>">
+				           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
+				         	</span>
+						 </div>
+						 <div class="favorite-box">
+							<span id="slept<%= spot.id %>">
+				           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
+				         	</span>
+						  </div>
+						</div>
+			<% end %>
 		   <div class="page-space">
 		   	<%= paginate @spots %>
 		</div>
