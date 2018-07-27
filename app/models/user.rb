@@ -7,7 +7,7 @@ class User < ApplicationRecord
    has_many :favorites, dependent: :destroy
    has_many :slepts, dependent: :destroy
    has_many :post_comments, dependent: :destroy
-   has_many :spots
+   has_many :spots, dependent: :destroy
    belongs_to :prefecture
 
    attachment :profile_image

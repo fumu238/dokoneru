@@ -7,11 +7,11 @@
           お気に入りに登録されたネドコはありません。<br>
           気に入ったネドコをお気に入りに登録してみましょう。
           <% end %>
-			<% @user.favorites.each do |favotites| %>
-				<%= link_to spot_path(favotites.spot) do %>
+			<% @favorites.each do |favorite| %>
+				<%= link_to spot_path(favorite.spot) do %>
 					<div class="main-content clearfix">
-						<% if favotites.spot.spot_images.present? %>
-							<% favotites.spot.spot_images.first(1).each do |spot_image| %>
+						<% if favorite.spot.spot_images.present? %>
+							<% favorite.spot.spot_images.first(1).each do |spot_image| %>
 								<div class="index-image">
 									<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
 				  				</div>
@@ -22,17 +22,29 @@
 							</div>
 						<% end %>
 							<div class="index-info">
-								<h4><%= favotites.spot.spot_name %></h4>
-								<p><%= favotites.spot.prefecture.prefecture_name %></p>
-								<p><%= favotites.spot.spot_address %></p>
-								<p>タイプ：<%= favotites.spot.type %></p>
-								<p>[<%= favotites.spot.discription %>]</p>
+								<h4><%= favorite.spot.spot_name %></h4>
+								<p><%= favorite.spot.prefecture.prefecture_name %></p>
+								<p><%= favorite.spot.spot_address %></p>
+								<p>タイプ：<%= favorite.spot.type %></p>
+								<p>[<%= favorite.spot.discription %>]</p>
 							</div>
 					</div>
 				<% end %>
+					<div class="index-favorite clearfix">
+						<div class="favorite-box">
+						   	<span id="favorite<%= favorite.spot_id %>">
+				           		<%= render partial: 'spots/favorite', locals: {spot: favorite.spot} %>
+				         	</span>
+						 </div>
+						 <div class="favorite-box">
+							<span id="slept<%= favorite.spot_id %>">
+				           		<%= render partial: 'spots/slept', locals: {spot: favorite.spot} %>
+				         	</span>
+						  </div>
+						</div>
 			<% end %>
 		   <div class="page-space">
-		   	<%= paginate @spots %>
+		   	<%= paginate @favorites %>
 		</div>
 	</div>
 </div>

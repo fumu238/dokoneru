@@ -18,8 +18,12 @@ Rails.application.routes.draw do
   # デリートフラグ---------------------------------------------------------
   get "/users/:id/delete" => "users#delete_flag", as: "users_delete"
   get "/users/:id/return" => "users#return", as: "users_return"
-  # デリートフラグ---------------------------------------------------------
-  
+
+  # ユーザーイメージ削除---------------------------------------------------------
+  get "/users/:id/delete_profile" => "users#delete_profile", as: "users_profile"
+  get "/users/:id/delete_back" => "users#delete_back", as: "users_back"
+  # -----------------------------------------------------------------------------
+
   get "/spots/search" => "spots#search"
   resources :users
 

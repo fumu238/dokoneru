@@ -7,7 +7,7 @@ class PostCommentsController < ApplicationController
 		if comment.save
 		redirect_to spot_path(spot)
 		else
-		flash[:danger] = "コメントが空では送信できません"
+		flash[:danger] = "コメントが空または140字以上では送信できません"
 		redirect_to spot_path(spot)
 		end
 	end

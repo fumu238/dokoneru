@@ -2,13 +2,13 @@
 	<% if spot.favorite_user(current_user) %>
 		<%= link_to spot_favorites_path(spot),method: :delete , remote: true do %>
 		    <div class="favorite-slept orange">
-		   		お気に入りネドコから外す
+		   		<i class="fa fa-star" aria-hidden="true" style="color:white;"></i> お気に入りネドコから外す
 			</div>
 		 <% end %>
 	<% else %>
 		<%= link_to spot_favorites_path(spot),method: :post, remote: true do %>
 			<div class="favorite-slept">
-		   		お気に入りネドコに登録
+		   		<i class="fa fa-star" aria-hidden="true"></i> お気に入りネドコに登録
 			</div>
 		<% end %>
 	<% end %>
