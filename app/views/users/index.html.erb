@@ -11,8 +11,9 @@
 					<tr>
 					  <th></th>
 					  <th>なまえ</th>
-					  <th><%= sort_link(@user_search, :prefecture_id, "住んでいるところ", default_order: :desc,:style => "color:gray")  %></th>
-					  <th><%= sort_link(@user_search, :slepts, "野宿回数", default_order: :desc) %></th>
+					  <th><%= sort_link(@user_search, :prefecture_id, "住んでいるところ", default_order: :desc)  %></th>
+					  <th><%= sort_link(@user_search, :spot_count, "ネドコ投稿数", default_order: :desc)  %>
+					  <th><%= sort_link(@user_search, :slept_count, "野宿回数", default_order: :desc) %></th>
 					</tr>
 				<% @users.each do |user| %>
 					<tr>
@@ -23,7 +24,8 @@
 					  	</td>
 					  <td><%= user.nick_name %></td>
 					  <td><%= user.prefecture.prefecture_name %></td>
-					  <td><%= user.slepts.count %></td>
+					  <td><%= user.spot_count %>
+					  <td><%= user.slept_count %></td>
 					  <% if admin_signed_in? && user.delete_flag == false %>
 					  <td><%= link_to "退会させる",users_delete_path(user),class: "btn btn-outline-secondary",data:{confirm: '退会させますか?' }  %></td>
 					  <% end %>

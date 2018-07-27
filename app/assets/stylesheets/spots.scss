@@ -61,7 +61,17 @@
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
+	box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.8);
     opacity:none;
+    -webkit-transition: 0.2s ;
+ 	 -moz-transition: 0.2s ;
+  	-o-transition: 0.2s ;
+}
+.add-btn:active {
+	-webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+	box-shadow: none;
 }
 .japan-map {
 	width:800px;
@@ -72,6 +82,12 @@
 	margin:50px auto 50px;
 }
 /*--------------------------------*/
+
+
+
+
+
+
 
 
 /*spot_show-----------------------------*/
@@ -99,6 +115,7 @@
 }
 .spot-image-box {
 	height:340px;
+	width: 370px;
 	float:left;
 	margin-left:8px;
 	border-bottom:solid 2px #cccccc;
@@ -128,6 +145,9 @@
 .spot-info-box dl dd {
 	width:300px;
 }
+.icon {
+	font-size:30px;
+}
 .spot-basis-info {
 	width:500px;
 	height:150px;
@@ -143,6 +163,9 @@
 .head-user {
 	float:right;
 }
+/*------------------------------------*/
+
+
 
 
 
@@ -177,6 +200,20 @@
 .comment-content {
 	padding-left:15px;
 }
+.color {
+	color:white;
+}
+/*------------------------------------*/
+
+
+
+
+
+
+
+
+
+/*モーダル--------------------------------------*/
 .comment-modal {
 	width:100%;
 	height:100%;
@@ -190,26 +227,34 @@
 .comment-box {
 	width:500px;
 	margin:200px auto 0;
-	border:solid 1px;
+	border:solid 10px;
 }
 .comment-modal-text {
 	background-color: black;
 	color:white;
 	font-size: 25px;
 }
-.open {
-	width:120px;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
-    border:solid 1px;
-    padding:3px 10px;
+.modal-on {
+	width:150px;
+	height:50px;
+	text-align: center;
+	line-height: 45px;
+    border:solid 4px;
     border-radius:10px;
     margin: 0 auto;
 }
-.open:hover {
+.modal-on:hover {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
     cursor: pointer;
+}
+.modal-on:acctive {
+	-webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    box-shadow:none ;
 }
 .modal-off {
 	float:right;
@@ -219,14 +264,7 @@
 .modal-off:hover {
 	cursor: pointer;
 }
-
-
-
-
-
-
-
-
+/*------------------------------------*/
 
 
 
@@ -239,7 +277,7 @@
 /*お気に入りーーーーーーーーーーーーーーーーーー*/
 .favorite-box {
 	float:left;
-	margin-left:120px;
+	margin-left:105px;
 }
 .favorite-slept {
 	border:solid 1px gray;
@@ -251,12 +289,21 @@
 	width:100%;
 	display: inline-block;
 	text-decoration: none;
-
 }
 .favorite-slept:hover {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+    -webkit-transition: 0.1s ease;
+ 	 -moz-transition: 0.1s ease;
+  	-o-transition: 0.1s ease;
+ }
+.favorite-slept:active {
+	-webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    box-shadow:none;
 }
 .green {
 	background-color: green;
@@ -276,15 +323,22 @@
 
 
 
+
+
+
 /*spot_search----------------------*/
 .reslut {
 	text-align: right;
 	padding-top:10px;
 }
+/*------------------------------------*/
 
 
 
-/*spot_new------------------------------*/
+
+
+
+/*spot_image_new------------------------------*/
 .spot-image-box-new {
 	height:160px;
 	margin:0 0 10px 10px;
@@ -295,6 +349,8 @@
 	height:150px;
 }
 .image-new-discription {
+	width:450px;
+	height:140px;
 	float:left;
 	padding:10px 0 0 10px;
 }

@@ -13,7 +13,7 @@ class SpotImagesController < ApplicationController
 	    if spot_image.save
 		redirect_to new_spot_spot_image_path(spot)
 		else
-		flash[:danger] = "写真を選びましたか？"
+		flash[:danger] = "写真が選択されていないか、説明文がない、または長すぎます"
 		redirect_to new_spot_spot_image_path(spot)
 		end
 	end

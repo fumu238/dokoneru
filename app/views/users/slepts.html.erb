@@ -7,7 +7,7 @@
           	宿泊済みに登録されたネドコはありません。<br>
           	宿泊したことのあるスポットを登録してみましょう。
           <% end %>
-			<% @user.slepts.each do |slept| %>
+			<% @slepts.each do |slept| %>
 				<%= link_to spot_path(slept.spot) do %>
 					<div class="main-content clearfix">
 						<% if slept.spot.spot_images.present? %>
@@ -30,9 +30,21 @@
 							</div>
 					</div>
 				<% end %>
+				<div class="index-favorite clearfix">
+						<div class="favorite-box">
+						   	<span id="favorite<%= slept.spot_id %>">
+				           		<%= render partial: 'spots/favorite', locals: {spot: slept.spot} %>
+				         	</span>
+						 </div>
+						 <div class="favorite-box">
+							<span id="slept<%= slept.spot_id %>">
+				           		<%= render partial: 'spots/slept', locals: {spot: slept.spot} %>
+				         	</span>
+						  </div>
+						</div>
 			<% end %>
 		   <div class="page-space">
-		   	<%= paginate @spots %>
+		   	<%= paginate @slepts %>
 		</div>
 	</div>
 </div>

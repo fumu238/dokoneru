@@ -2,13 +2,13 @@
 	<% if spot.slept_user(current_user) %>
 		<%= link_to spot_slepts_path(spot),method: :delete , remote: true do %>
 		    <div class="favorite-slept green">
-		   		宿泊済みネドコから外す
+		   		<i class="fa fa-bed" aria-hidden="true" style="color:white;"></i> 宿泊済みネドコから外す
 			</div>
 		 <% end %>
 	<% else %>
 		<%= link_to spot_slepts_path(spot),method: :post, remote: true do %>
 			<div class="favorite-slept">
-				宿泊済みネドコに登録
+				<i class="fa fa-bed" aria-hidden="true"></i> 宿泊済みネドコに登録
 			</div>
 		<% end %>
 	<% end %>

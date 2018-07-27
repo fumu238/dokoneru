@@ -12,21 +12,23 @@
 }
 .user-icon {
 	position:absolute;
-	height:154px;
-	height:154px;
+	height:150px;
 	top:210px;
 	left:400px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+	z-index: 2;
 }
 .user-name {
 	background-color: white;
 	text-align: center;
 	width:150px;
+	border:solid 1px;
 	border-radius: 5px;
 	margin-top:10px;
 	position:absolute;
-	top:350px;
+	top:355px;
 	left:400px;
+	font-weight: bold;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
 .user-info-space {
@@ -45,6 +47,18 @@
 	width:257px;
 	text-align:center;
 	padding: 9px 0;
+}
+/*.user-info-line:hover {
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.6) inset;
+}*/
+.user-info-line:active {
+	-webkit-transition: 0.2s ease;
+ 	 -moz-transition: 0.2s ease;
+  	-o-transition: 0.2s ease;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.6) inset;
+	-webkit-transform: translateY(+1px);
+    -ms-transform: translateY(+1px);
+    transform: translateY(+1px);
 }
 .user-info-line a {
 	width:100%;

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require rails-ujs
-  //= require turbolinks
   //= require Chart.min
   //= require jquery3
   //= require popper
@@ -23,7 +22,7 @@ $(function(){
   //地域を設定
   //{"code":[地域のコード], "name": [地域の名前], "color":[地域につける色], "hoverColor":[地域をマウスでホバーしたときの色], "prefectures":[地域に含まれる都道府県のコード]}
   var areas = [
-    {"code": 1 , "name":"北海道地方", "color":"#ca93ea", "hoverColor":"#e0b1fb", "prefectures":[1], "prefecture_name":"北海道"},
+    {"code": 1 , "name":"北海道地方", "color":"#ca93ea", "hoverColor":"#e0b1fb", "prefectures":[1]},
     {"code": 2 , "name":"東北地方",   "color":"#a7a5ea", "hoverColor":"#d6d4fd", "prefectures":[2,3,4,5,6,7]},
     {"code": 3 , "name":"関東地方",   "color":"#84b0f6", "hoverColor":"#c1d8fd", "prefectures":[8,9,10,11,12,13,14]},
     {"code": 4 , "name":"北陸・甲信越地方",   "color":"#52d49c", "hoverColor":"#93ecc5", "prefectures":[15,16,17,18,19,20]},
@@ -57,7 +56,7 @@ $(function(){
   );
 
 // モーダル-------------------------
-  $(".open").click(function(){
+  $(".modal-on").click(function(){
     $(".comment-modal").show();
   });
 
@@ -65,11 +64,24 @@ $(function(){
     $(".comment-modal").fadeOut();
   });
 
+// ヘッダー変化-----------------------------
+  var dist = 70;
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 70) {
+      $('header').addClass('scroll');
+      $('.head-logo').addClass('scroll');
+      $('.head-right').addClass('scroll');
+    } else {
+      $('header').removeClass('scroll');
+      $('.head-logo').removeClass('scroll');
+      $('.head-right').removeClass('scroll');
+    }
+  });
+
 
 
 });
 
-// ここまで---------------------------------------------------------------------------------------------------------------------
 
 
 

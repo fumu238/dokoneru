@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!, only:[:index, :slepts, :favorites]
-	# layout "user_index", only: [:index]
+
+
 	def index
 		@user_search = User.ransack(params[:user], search_key: :user)
 		@users = @user_search.result(distinct: true).page(params[:page]).per(5)
@@ -104,6 +104,9 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		unless @user == current_user
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -112,17 +115,28 @@ class UsersController < ApplicationController
 		redirect_to user_path
 	end
 
+	def delete_profile
+		@user = User.find(params[:id])
+		@user.profile_image_id = nil
+		@user.save
+		redirect_to edit_user_path(@user)
+	end
+
+	def delete_back
+		@user = User.find(params[:id])
+		@user.background_image_id = nil
+		@user.save
+		redirect_to edit_user_path(@user)
+	end
+
 	def favorites
 		@user = User.find(params[:user_id])
-		# @favorites = Favorite.where(params[:user_id]).page(params[:page]).per(5).order("created_at DESC")
-		@spots = @user.favorites.page(params[:page]).per(1).order("created_at DESC")
+		@favorites = @user.favorites.page(params[:page]).per(10)
 	end
 
 	def slepts
 		@user = User.find(params[:user_id])
-		# @slepts = @user.slepts.page(params[:page]).per(5).order("created_at DESC")
-		@spots = @user.slepts.page(params[:page]).per(1).order("created_at DESC")
-
+		@slepts = @user.slepts.page(params[:page]).per(10)
 	end
 
 	private
@@ -131,4 +145,10 @@ class UsersController < ApplicationController
 	  		:sex, :age, :profile_image, :background_image, :introduction, :prefecture_id)
 	  end
 
+	 #  def access
+		# unless user_signed_in? || admin_signed_in?
+		# 	redirect_to new_user_session_path
+		# 	flash[:danger] = "ユーザー登録、またはログインをしてください"
+		# end
+	 #  end
 end

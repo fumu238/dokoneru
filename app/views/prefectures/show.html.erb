@@ -1,7 +1,10 @@
 <div class="back-ground">
 	<div class="main-space">
-		<div class="section-head">
+		<div class="section-head clearfix">
 			<h3><%= @prefecture.prefecture_name %>でネドコを探す</h3>
+				<div class="spot-count">
+					<%= @prefecture.prefecture_name %>のネドコ登録数　<%= @spots.count %>件
+				</div>
 		</div>
 		<% if @spots.count == 0 %>
 		<%= @prefecture.prefecture_name %>のネドコはまだ登録されていません<br>
