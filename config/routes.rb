@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resource :post_comments, only: [:create, :destroy]
   end
 
-# 一時的↓-----------------------------------
+# 一users_favorite&slept-----------------------------------
   get "users/:user_id/slepts" => "users#slepts" ,as: "users_slepts"
   get "users/:user_id//favorites" => "users#favorites", as: "users_favorites"
 # ------------------------------------------

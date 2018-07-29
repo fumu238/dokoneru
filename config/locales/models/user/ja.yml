@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        current_password: 現在のパスワード
+        remember_me: 保存する
+        name_phonetic: ふりがな
+        nick_name: ニックネーム
+        Prefecture: 所在地
+    models:
+      Prefecture: 都道府県
+    attributes:
+      Prefecture: 都道府県
+        prefecture_name: 都道府県

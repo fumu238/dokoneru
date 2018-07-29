@@ -16,7 +16,7 @@ class User < ApplicationRecord
    validates :user_name, presence: true
    validates :name_phonetic, presence: true
    validates :nick_name, presence: true
-   validates :prefecture_id, presence: true
+   # validates :prefecture_id, presence: true
 
 
    def active_for_authentication?

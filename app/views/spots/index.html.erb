@@ -1,28 +1,29 @@
-<%= render "layouts/flash" %>
+	<%= render "layouts/flash" %>
 <div class="top-main">
 	<div class="top-main-box">
 		外で寝ても、いいですか？
     </div>
-  </div>
-<div class="top-add-box clearfix">
-	<div class="add-text">
-		 現在登録されている寝床は <%= @spot.count %> 件です
-		</div>
-	  <%= link_to new_spot_path do %>
-		<div class="add-btn">
-		  <br><br>
-		   快適なネドコを新規投稿する
-		</div>
-	  <% end %>
 </div>
+	<div class="top-add-box clearfix">
+		<div class="add-text">
+			 現在登録されている寝床は <%= @spot.count %> 件です
+		</div>
+	  		<%= link_to new_spot_path do %>
+				<div class="add-btn">
+		   			ネドコ新規投稿
+				</div>
+	  		<% end %>
+	</div>
+<!-- map---------------------------------------------------- -->
  <div class="japan-map">
 	<div class="section-head">
 		 <h3>地図から探す</h3>
 	</div>
- </div>
-
-<div id="map" style="width:1000px; margin-left:180px">
- </div>
+</div>
+ 	<div class="map-box">
+		<div id="map" style="width:1000px; margin-left:180px"></div>
+	</div>
+<!-- ---------------------------------------------------- -->
 <div class="back-ground ">
 	<div class="main-space top-back">
   			<div class="section-head">
@@ -56,13 +57,13 @@
 				   	<span id="favorite<%= spot.id %>">
 		           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
 		         	</span>
-				 </div>
-				 <div class="favorite-box">
+				</div>
+				<div class="favorite-box">
 					<span id="slept<%= spot.id %>">
 		           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
 		         	</span>
-				  </div>
 				</div>
+			</div>
 		<% end %>
 	</div>
 </div>

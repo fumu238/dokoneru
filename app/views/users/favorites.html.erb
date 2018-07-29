@@ -4,9 +4,10 @@
              <h3><%= @user.nick_name %>さんのお気に入りネドコ</h3>
           </div>
           <% if @user.favorites.count == 0 %>
-          お気に入りに登録されたネドコはありません。<br>
-          気に入ったネドコをお気に入りに登録してみましょう。
+	          お気に入りに登録されたネドコはありません。<br>
+	          気に入ったネドコをお気に入りに登録してみましょう。
           <% end %>
+<!-- ----------------------------------------------------------------- -->
 			<% @favorites.each do |favorite| %>
 				<%= link_to spot_path(favorite.spot) do %>
 					<div class="main-content clearfix">
@@ -43,6 +44,7 @@
 						  </div>
 						</div>
 			<% end %>
+<!-- ----------------------------------------------------------------- -->
 		   <div class="page-space">
 		   	<%= paginate @favorites %>
 		</div>

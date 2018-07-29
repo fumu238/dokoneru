@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 	def index
 		@user_search = User.ransack(params[:user], search_key: :user)
-		@users = @user_search.result(distinct: true).page(params[:page]).per(5)
+		@users = @user_search.result(distinct: true).page(params[:page]).per(10)
 	end
 
 	def delete_flag
@@ -116,27 +116,27 @@ class UsersController < ApplicationController
 	end
 
 	def delete_profile
-		@user = User.find(params[:id])
-		@user.profile_image_id = nil
-		@user.save
-		redirect_to edit_user_path(@user)
+		user = User.find(params[:id])
+		user.profile_image_id = nil
+		user.save
+		redirect_to edit_user_path(user)
 	end
 
 	def delete_back
-		@user = User.find(params[:id])
-		@user.background_image_id = nil
-		@user.save
-		redirect_to edit_user_path(@user)
+		user = User.find(params[:id])
+		user.background_image_id = nil
+		user.save
+		redirect_to edit_user_path(user)
 	end
 
 	def favorites
 		@user = User.find(params[:user_id])
-		@favorites = @user.favorites.page(params[:page]).per(10)
+		@favorites = @user.favorites.order(:created_at).reverse_order.page(params[:page]).per(10)
 	end
 
 	def slepts
 		@user = User.find(params[:user_id])
-		@slepts = @user.slepts.page(params[:page]).per(10)
+		@slepts = @user.slepts.order(:created_at).reverse_order.page(params[:page]).per(10)
 	end
 
 	private
@@ -144,11 +144,4 @@ class UsersController < ApplicationController
 	  	params.require(:user).permit(:user_name,:user_name, :name_phonetic, :nick_name, :introduction,
 	  		:sex, :age, :profile_image, :background_image, :introduction, :prefecture_id)
 	  end
-
-	 #  def access
-		# unless user_signed_in? || admin_signed_in?
-		# 	redirect_to new_user_session_path
-		# 	flash[:danger] = "ユーザー登録、またはログインをしてください"
-		# end
-	 #  end
 end

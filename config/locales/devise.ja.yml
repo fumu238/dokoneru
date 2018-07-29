@@ -1,4 +1,14 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        user_name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+        name_phonetic: ふりがな
+        nick_name: 表示名
+        Prefecture: 所在地
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'

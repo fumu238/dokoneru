@@ -4,8 +4,9 @@
 			<div class="user-header-image">
 				<%= attachment_image_tag @user, :background_image, :fill, 780, 290, format: 'jpeg', fallback: 'no-image.jpg', :size => '780x290' %>
 				<div class="user-icon">
-					<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: 'no-image.jpg', :size => '150x150' %>
+					<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: 'no-icon.jpg', :size => '150x150' %>
 			     </div>
+<!-- ----------------------------------------------------------------- -->
 			     <div class="user-name">
 			     	<%= @user.nick_name %>
 			     </div>
@@ -31,26 +32,31 @@
 			 		<% end %>
 			 	</div>
 			 </div>
+<!-- user-info----------------------------------------------------------------- -->
+
 		 <div class="content-space">
-		 	<div class="introduction">
-		 		<dl>
-			 	  <dt><i class="fa fa-genderless" aria-hidden="true"></i> 性別
-			      </dt>
-			      <dd><%= @user.sex %>
-			      </dd>
-			 	</dl>
-			 	<dl>
-			 	  <dt><i class="fa fa-star-of-life" aria-hidden="true"></i> 年代
-			      </dt>
-			      <dd><%= @user.age %>
-			      </dd>
-			 	</dl>
-			 	<dl>
-			 	  <dt><i class="fa fa-comment" aria-hidden="true"></i> 自己紹介
-			      </dt>
-			      <dd><%= @user.introduction %>
-			      </dd>
-			 	</dl>
+		 	<div class="intro-line clearfix">
+		 		<div class="intro-line-box">
+			 	  <i class="fa fa-genderless" aria-hidden="true"></i> 性別　
+			 	  <% if @user.sex == "男性" %>
+			 	  <i class="fa fa-male" aria-hidden="true"></i>
+			 	  <% elsif @user.sex == "女性"%>
+			 	  <i class="fa fa-female" aria-hidden="true"></i>
+			     <% else %>
+			     <% end %>
+			 </div>
+		 		<div class="intro-line-box">
+			 	  <i class="fa fa-star-of-life" aria-hidden="true"></i> 年代　
+			      <%= @user.age %>
+			 </div>
+		 		<div class="intro-line-box">
+			 	  <i class="fa fa-upload" aria-hidden="true"></i> ネドコ登録数　
+			 	  <%= @user.spot_count %>件
+			   </div>
+			</div>
+		 	<div class="intro">
+			 	 <i class="fa fa-comment" aria-hidden="true"></i> 自己紹介<br>
+			      <%= @user.introduction %>
 		 	</div>
 		 </div>
 		   <div class="content-space">
@@ -61,7 +67,7 @@
 		   </div>
 	</div>
 </div>
-
+<!-- ----------------------------------------------------------------- -->
 <script>
 Chart.scaleService.updateScaleDefaults('linear', {
     ticks: {

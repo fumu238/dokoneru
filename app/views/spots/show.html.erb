@@ -25,7 +25,7 @@
            		<%= render partial: 'slept', locals: {spot: @spot} %>
          	</span>
 		  </div>
-<!-- --------------------------------------------------- -->
+<!-- image--------------------------------------------------- -->
 		</div>
 
 		  <div class="content-space clearfix">
@@ -33,7 +33,9 @@
 			    画像ギャラリー
 			  </div>
 				<div class="edit-button">
+					<% if user_signed_in? || admin_signed_in? %>
 				 	<%= link_to "画像投稿", new_spot_spot_image_path(@spot), class: "btn btn-outline-warning" %>
+				 	<% end %>
 				  </div>
 				  	<% if @spot.spot_images.blank? %>
 				  	 	<div class="no-comment">
@@ -49,18 +51,19 @@
 			  </div>
 			  <% end %>
 		</div>
+<!-- 以下スポット特徴------------------------------------------------------- -->
 		  <div class="content-space clearfix">
 			<div class="spot-h3">
 		  		スポット特徴
 			 </div>
 			 <div class="edit-button">
+					<% if user_signed_in? || admin_signed_in? %>
 				 	<%= link_to "編集する", edit_spot_path, class: "btn btn-outline-warning" %>
+				 	<% end %>
 				 </div>
-
 <%= render 'info' , spot: @spot %>
-
 		  </div>
-
+<!-- ----------------------------------------------------------------- -->
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
 		  		スポット投稿者コメント
@@ -69,13 +72,13 @@
 			      <%= @spot.discription %>
 			    </div>
 		   </div>
-
+<!-- 以下コメント&フォーム--------------------------------------------------- -->
 <%= render 'comment' ,spot: @spot ,post_comment: @post_comment %>
 
 			<div class="modal-on">
 			<i class="fa fa-comments" aria-hidden="true"></i>
 			コメントする</div>
-
+<!-- ----------------------------------------------------------------- -->
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
 		  		スポット基本情報
@@ -88,7 +91,7 @@
 			  	住所：<a href="http://maps.google.co.jp/maps?q=<%= @spot.spot_address %>" target="_blank"><%= @spot.spot_address %></a>
 			  </div>
 		   </div>
-
+<!-- ----------------------------------------------------------------- -->
 		 <div class="content-space clearfix">
 		 	<%= link_to "TOP", root_path, :style => "color:gray" %>
 		 	 > 

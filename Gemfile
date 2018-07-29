@@ -63,3 +63,4 @@ gem "kaminari"
 gem 'bootstrap', '~> 4.1.1'
 gem 'seed-fu', '~> 2.3'
 gem 'chart-js-rails', '~> 0.1.4'
+gem 'rails-i18n'

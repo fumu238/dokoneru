@@ -2,10 +2,10 @@
 	<div class="main-space">
 		<%= render "layouts/flash" %>
 		<div class="section-head">
-			<h4>画像投稿</h4>
+			<h4><%= @spot.spot_name %>への画像投稿</h4>
 		 </div>
-			<div class="container">
-			 <%= form_for @spot_image, url: spot_spot_images_path do |f| %>
+			<div class="container section-head">
+				<%= form_for @spot_image, url: spot_spot_images_path do |f| %>
 	           		<div class="form-group">
 	           			<label>画像</label>
 	            		<%= f.attachment_field :image, class: 'form-control' %>
@@ -14,28 +14,28 @@
 	           			<label>画像説明</label>
 	            		<%= f.text_field :image_discription, :placeholder => "40字以内で投稿してください",class: 'form-control' %>
 	            	</div>
-	        	 <%= f.submit "画像投稿",class: "btn btn-outline-info" %>
-	         <% end %>
-	        </div>
-
-	        	<div class="section-head">
-					</div>
-					1番上の画像がサムネになります
-	      <div class="content-space">
-			<% @spot.spot_images.each do |spot_image| %>
-				<div class="spot-image-box-new">
-			 	   <div class="spot-image-new">
-			 	     	<%= attachment_image_tag spot_image, :image, :fill, 200, 150 , format: 'jpeg' %>
-			       	</div>
-			       		<div class="image-new-discription">
-			     			<i class="fa fa-comment-alt" aria-hidden="true"></i> 画像説明文<br>
-			     			<%= spot_image.image_discription %>
-			  			</div>
-			   		<div class="edit-button">
-			   			<%= link_to "削除",spot_spot_image_path(@spot ,spot_image), method: :delete ,class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
-			   		</div>
+	        	 		<%= f.submit "画像投稿",class: "btn btn-outline-info" %>
+	         	<% end %>
+	    	</div>
+<!-- 上画像フォーム、下確認------------------------------------------------------ -->
+  		<div class="section-head">
+				1番上の画像がサムネになります
+  			<div class="content-space">
+		<% @spot.spot_images.each do |spot_image| %>
+				<div class="spot-image-box-new clearfix">
+	 	   			<div class="spot-image-new">
+	 	     			<%= attachment_image_tag spot_image, :image, :fill, 200, 150 , format: 'jpeg' %>
+	       			</div>
+	       			<div class="image-new-discription">
+	     				<i class="fa fa-comment-alt" aria-hidden="true"></i> 画像説明文<br>
+	     				<%= spot_image.image_discription %>
+	  				</div>
+	   				<div class="edit-button">
+	   				<%= link_to "削除",spot_spot_image_path(@spot ,spot_image), method: :delete ,class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
+	   				</div>
 				</div>
-			<% end %>
+		<% end %>
+			</div>
 		</div>
 		<%= link_to spot_path(@spot) ,class: "btn btn-outline-success"  do %>
 			<%= @spot.spot_name %> へ戻る

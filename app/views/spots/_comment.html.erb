@@ -2,15 +2,15 @@
 	<div class="spot-h3">
 		 自由コメント欄
 		</div>
-		 <% if spot.post_comments.count == 0 %>
-		 	  <div class="no-comment">
-		 		コメントしませんか？
-		 <% elsif spot.post_comments.count >= 3 %>
-			     <div class="comment-scroll">
-		 <% else %>
-			    <div>
-	 	 <% end %>
-	          <% spot.post_comments.reverse.each do |post| %>
+	<% if spot.post_comments.count == 0 %>
+		 	<div class="no-comment">
+		 		まだコメントはありません
+	<% elsif spot.post_comments.count >= 3 %>
+			<div class="comment-scroll">
+	<% else %>
+			<div>
+	<% end %>
+	     <% spot.post_comments.reverse.each do |post| %>
 	    		<div class="comment-user">
 	    			<%= link_to user_path(post.user),:style => "color:gray" do %>
 	    			<%= attachment_image_tag post.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: 'no.jpg', :size => '40x40' %>
@@ -20,26 +20,25 @@
   					   <%= post.comment %>
   					 </div>
   			    </div>
-  			     <% if admin_signed_in? || post.user == current_user %>
-  			      	<div class="comment-delete">
-  			          <%= link_to "削除",spot_post_comments_path(@spot),method: :delete, class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
-  			       </div>
-  			     <% end %>
-	     	  <% end %>
-			 </div>
-		</div>
+  			     	<% if admin_signed_in? || post.user == current_user %>
+  			      		<div class="comment-delete">
+  			          	<%= link_to "削除",spot_post_comments_path(@spot),method: :delete, class: "btn btn-outline-danger",data:{confirm: '削除しますか?' } %>
+  			       		</div>
+  			     	<% end %>
+	     <% end %>
+			</div>
+<!--以下コメントフォーム ----------------------------------------------------------- -->
 	<div class="comment-modal">
 		<div class="comment-box clearfix">
 			<div class="modal-off">
 				<i class="fa fa-window-close" aria-hidden="true" style="color:orange;"></i>
 		　	</div>
-				<div class="comment-modal-text">
+			<div class="comment-form">
+				<%= form_for [spot,post_comment] do |f| %>
+				<%= f.text_field :comment ,placeholder: "140字以内でコメントしてください",class: "form-control rgb" , :style => "color:white" %>
+				<%= f.submit "コメントする",class: "btn btn-outline-light" %>
+			    <% end %>
 			</div>
-		<div class="comment-form">
-			<%= form_for [spot,post_comment] do |f| %>
-			<%= f.text_field :comment ,class: "form-control rgb color" %>
-			<%= f.submit "コメントする",class: "btn btn-outline-success" %>
-		    <% end %>
 		</div>
 	</div>
 </div>

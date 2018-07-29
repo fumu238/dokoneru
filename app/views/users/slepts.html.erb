@@ -7,6 +7,7 @@
           	宿泊済みに登録されたネドコはありません。<br>
           	宿泊したことのあるスポットを登録してみましょう。
           <% end %>
+<!-- ----------------------------------------------------------------- -->
 			<% @slepts.each do |slept| %>
 				<%= link_to spot_path(slept.spot) do %>
 					<div class="main-content clearfix">
@@ -43,6 +44,7 @@
 						  </div>
 						</div>
 			<% end %>
+<!-- ----------------------------------------------------------------- -->
 		   <div class="page-space">
 		   	<%= paginate @slepts %>
 		</div>
