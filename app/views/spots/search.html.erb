@@ -9,9 +9,9 @@
             <div class="container">
 		        ネドコタイプ
               	<div class="btn-group" data-toggle="buttons">
-              	  <!-- <label for="type" class="btn btn-default">
-		            <%= f.radio_button :type_eq , nil %>指定なし
-		          </label> -->
+              	 <label for="type" class="btn btn-default">
+		            <%= f.radio_button :type_eq ,"" %>指定なし
+		          </label>
 		          <label for="type" class="btn btn-default">
 		            <%= f.radio_button :type_eq ,"道の駅" %>道の駅
 		          </label>
@@ -24,9 +24,9 @@
 		        </div><br>
 		        東屋　　　　
 		        <div class="btn-group" data-toggle="buttons">
-		        	 <!-- <label for="pavilion" class="btn btn-default">
-		            <%= f.radio_button :pavilion_eq  , nil %>指定なし
-		          </label> -->
+		        	<label for="pavilion" class="btn btn-default">
+		            <%= f.radio_button :pavilion_eq ,"" %>指定なし
+		          </label>
 		          <label for="pavilion" class="btn btn-default">
 		            <%= f.radio_button :pavilion_eq ,"あり" %>あり
 		          </label>
@@ -36,9 +36,9 @@
 		        </div><br>
 		        24時間休憩所
 		        <div class="btn-group" data-toggle="buttons">
-		        	 <!-- <label for="rest_area" class="btn btn-default">
-		            <%= f.radio_button :rest_area_eq  , nil %>指定なし
-		          </label> -->
+		        	<label for="rest_area" class="btn btn-default">
+		            <%= f.radio_button :rest_area_eq , "" %>指定なし
+		          </label>
 		          <label for="pavilion" class="btn btn-default">
 		            <%= f.radio_button :rest_area_eq ,"あり" %>あり
 		          </label>
@@ -54,17 +54,18 @@
                 </div>
             </div>
          </div>
+<!-- 上検索フォーム--------------------------------------------------------------- -->
          	<div class="reslut">
-         		<% if @search_words.presence %>
-         			"<% @search_words.each do |word| %>
-         				 <%# binding.pry  %>
+         		"<% if @search_words.presence %>
+         			<% @search_words.each do |word| %>
          				<%= word %>
-         			<%end %>"
-         		<% end %>
+         			<%end %>
+         		<% end %>"
          		 の検索結果 <%= @q.result.count %>件<br>
             	全<%= @spots.total_pages %>ページ中 <%= @spots.current_page %>ページ目
             </div>
         </div>
+<!-- 以下スポット--------------------------------------------------------------- -->
 			<% @spots.each do |spot| %>
 		  	    <%= link_to spot_path(spot) do %>
 					<div class="main-content clearfix">
@@ -103,6 +104,7 @@
 						</div>
 					</div>
 			<% end %>
+<!-- ----------------------------------------------------------------------------- -->
 		   		<div class="page-space">
 		   	<%= paginate @spots %>
 		</div>

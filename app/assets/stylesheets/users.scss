@@ -9,25 +9,24 @@
 	height:290px;
 	width:780px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+	position: relative;;
 }
 .user-icon {
 	position:absolute;
 	height:150px;
-	top:210px;
-	left:400px;
+	top:95px;
+	left:30px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
-	z-index: 2;
 }
 .user-name {
 	background-color: white;
 	text-align: center;
 	width:150px;
-	border:solid 1px;
 	border-radius: 5px;
 	margin-top:10px;
 	position:absolute;
-	top:355px;
-	left:400px;
+	top:240px;
+	left:30px;
 	font-weight: bold;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
 }
@@ -48,9 +47,6 @@
 	text-align:center;
 	padding: 9px 0;
 }
-/*.user-info-line:hover {
-	box-shadow: 3px 3px 3px rgba(0,0,0,0.6) inset;
-}*/
 .user-info-line:active {
 	-webkit-transition: 0.2s ease;
  	 -moz-transition: 0.2s ease;
@@ -64,15 +60,16 @@
 	width:100%;
 	display:inline-block;
 }
+.intro-line {
+	margin:30px 0 30px;
+}
+.intro-line-box {
+	float:left;
+	width:250px;
+	text-align: center;
+}
+.intro {
 
-.introduction dt{
-	width:100px;
-}
-.introduction dd{
-	width:500px;
-}
-.introduction dl {
-	display: flex;
 }
 
 /*ログイン*/

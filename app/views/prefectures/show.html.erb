@@ -6,11 +6,11 @@
 					<%= @prefecture.prefecture_name %>のネドコ登録数　<%= @spots.count %>件
 				</div>
 		</div>
-		<% if @spots.count == 0 %>
-		<%= @prefecture.prefecture_name %>のネドコはまだ登録されていません<br>
-		<%= link_to "登録", new_spot_path %>しませんか？
-		<% end %>
-	
+			<% unless @spots.present?%>
+				<%= @prefecture.prefecture_name %>のネドコはまだ登録されていません<br>
+				<%= link_to "投稿", new_spot_path ,:style => "color:#007b43;"%>しませんか？
+			<% end %>
+<!-- 以下spot------------------------------------------------------------------- -->
 			<% @spots.each do |spot| %>
 				<%= link_to spot_path(spot) do %>
 					<div class="main-content clearfix">
@@ -47,6 +47,7 @@
 						  </div>
 						</div>
 			<% end %>
+<!-- ----------------------------------------------------------------------------- -->
 		   <div class="page-space">
 		   	<%= paginate @spots %>
 		</div>

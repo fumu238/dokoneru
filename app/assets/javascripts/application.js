@@ -65,9 +65,9 @@ $(function(){
   });
 
 // ヘッダー変化-----------------------------
-  var dist = 70;
+  var dist = 50;
   $(window).scroll(function() {
-    if ($(window).scrollTop() > 70) {
+    if ($(window).scrollTop() > 50) {
       $('header').addClass('scroll');
       $('.head-logo').addClass('scroll');
       $('.head-right').addClass('scroll');
@@ -77,9 +77,6 @@ $(function(){
       $('.head-right').removeClass('scroll');
     }
   });
-
-
-
 });
 
 
