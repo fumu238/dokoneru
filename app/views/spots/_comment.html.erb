@@ -35,7 +35,7 @@
 		　	</div>
 			<div class="comment-form">
 				<%= form_for [spot,post_comment] do |f| %>
-				<%= f.text_field :comment ,class: "form-control rgb" , :style => "color:white" %>
+				<%= f.text_field :comment ,placeholder: "140字以内でコメントしてください",class: "form-control rgb" , :style => "color:white" %>
 				<%= f.submit "コメントする",class: "btn btn-outline-light" %>
 			    <% end %>
 			</div>

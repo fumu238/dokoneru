@@ -430,9 +430,57 @@ body {
 }
 
 
+/*user-------------------------------------*/
+img.attachment.user.background_image{
+	width: 340px;
+	height:150px;
+}
+.user-header-image {
+	height:150px;
+	width:340px;
+}
+img.attachment.user.profile_image {
+	height:100px;
+	width:100px;
+}
+.user-icon {
+	height:100px;
+	top:10px;
+	left:10px;
+}
+.user-name {
+	width:100px;
+	top:105px;
+	left:10px;
+}
+.user-info-line {
+	width:110px;
+}
+.user-info-space {
+	height:70px;
+}
 
-
-
+.user-info-line:active {
+	-webkit-transition: 0.2s ease;
+ 	 -moz-transition: 0.2s ease;
+  	-o-transition: 0.2s ease;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.6) inset;
+	-webkit-transform: translateY(+1px);
+    -ms-transform: translateY(+1px);
+    transform: translateY(+1px);
+}
+.user-info-line a {
+	width:100%;
+	display:inline-block;
+}
+.intro-line {
+	margin:30px 0 30px;
+}
+.intro-line-box {
+	float:left;
+	width:250px;
+	text-align: center;
+}
 
 
 

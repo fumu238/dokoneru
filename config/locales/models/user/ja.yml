@@ -12,7 +12,7 @@ ja:
         remember_me: 保存する
         name_phonetic: ふりがな
         nick_name: ニックネーム
-        Prefecture_name: 所在地
+        Prefecture: 所在地
     models:
       Prefecture: 都道府県
     attributes:
