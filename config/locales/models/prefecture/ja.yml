@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      Prefecture: 都道府県
+    attributes:
+      Prefecture: 都道府県
+        prefecture_name: 都道府県
