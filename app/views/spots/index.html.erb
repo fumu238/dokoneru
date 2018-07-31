@@ -33,12 +33,12 @@
 					<% if spot.spot_images.present? %>
 			 			<% spot.spot_images.first(1).each do |spot_image| %>
 							<div class="index-image">
-								<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg', fallback: 'no.jpg', :size => '240x180' %>
+								<%= attachment_image_tag spot_image, :image, :fill, 240, 180 , format: 'jpeg' %>
 				    		</div>
 				    	<% end %>
 				    <% else %>
 				    	<div class="index-image">
-				    		<%= image_tag('no.jpg' ,  :size => '240x180' ) %>
+				    		<%= image_tag('/images/no.jpg' ,  :size => '240x180' ) %>
 				    	</div>
 				    <% end %>
 					  <div class="index-info">
