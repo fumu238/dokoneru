@@ -4,7 +4,7 @@
 
 /*spot_index(top)----------------------*/
 .top-main {
-	background-image: url(main-image5.jpg);
+	background-image: url("/images/main-image5.jpg");
 	background-position:bottom;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -30,7 +30,7 @@
 	border-radius: 10px;
 	margin:20px auto;
 	text-align: center;
-	background-image: url(add.jpg);
+	background-image: url("/images/add.jpg");
 }
 .add-text {
 	height:80px;
@@ -80,7 +80,7 @@
 	margin:0 auto;
 }
 .map-box {
-	background-image: url("map.jpg");
+	background-image: url("/images/map.jpg");
 	width:100%;
 	background-repeat: no-repeat;
 	background-size: cover;

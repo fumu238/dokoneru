@@ -2,9 +2,9 @@
 	<div class="main-space">
 		<%= render "layouts/flash" %>
 			<div class="user-header-image">
-				<%= attachment_image_tag @user, :background_image, :fill, 780, 290, format: 'jpeg', fallback: 'no-image.jpg', :size => '780x290' %>
+				<%= attachment_image_tag @user, :background_image, :fill, 780, 290, format: 'jpeg', fallback: '/images/no-image.jpg', :size => '780x290' %>
 				<div class="user-icon">
-					<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: 'no-icon.jpg', :size => '150x150' %>
+					<%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: '/images/no-icon.jpg', :size => '150x150' %>
 			     </div>
 <!-- ----------------------------------------------------------------- -->
 			     <div class="user-name">
