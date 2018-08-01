@@ -17,6 +17,7 @@
 	top:95px;
 	left:30px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+	border-radius:10%;
 }
 .user-name {
 	background-color: white;
@@ -68,8 +69,11 @@
 	width:250px;
 	text-align: center;
 }
-.intro {
-
+.radius {
+	border-radius:50%;
+}
+.radius-icon {
+	border-radius:10%;
 }
 
 /*ログイン*/

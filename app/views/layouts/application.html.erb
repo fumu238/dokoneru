@@ -38,11 +38,24 @@
     <%= yield %>
 
 
-<footer clearfix>
-  <div class="footer-link">
-      <%= link_to 'ログアウト',  destroy_admin_session_path, method: :delete,:style => "color:white;" %> | 
-      <%= link_to "ユーザー検索" ,users_path,:style => "color:white;" %>
-    </div>
+<footer>
+  <div class="footer-box clearfix">
+      <%= link_to 'ログイン｜',  new_user_session_path,:style => "color:white;" %>
+  <% if admin_signed_in? %>
+      <%= link_to 'ログアウト｜',  destroy_admin_session_path, method: :delete,:style => "color:white;" %>
+  <% elsif user_signed_in? %>
+      <%= link_to 'ログアウト｜',  destroy_user_session_path, method: :delete,:style => "color:white;" %>
+  <% end %>
+      <%= link_to "ユーザー検索｜" ,users_path,:style => "color:white;" %>
+      <%= link_to "絞り込み検索｜" ,spots_search_path,:style => "color:white;" %>
+  </div>
+
+  <div class="footer-box clearfix">
+    <%= link_to "お問い合わせ｜" ,contact_path,:style => "color:white;" %>
+    <%= link_to "ドコネルについて｜ " ,about_path,:style => "color:white;" %>
+    <%= link_to "利用規約" ,agreement_path,:style => "color:white;" %>
+  </div>
+
     <div class="footer-logo">
         Copyright 2018 ドコネル　All Right Reserved.
   </div>

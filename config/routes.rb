@@ -41,11 +41,10 @@ Rails.application.routes.draw do
   root "spots#index"
   get "/areas" => "prefectures#areas"
   get "/prefecture/:prefecture_name/" => "prefectures#show", as: "areas_prefecture"
+  get "/about" => "about#about"
+  get "contact" => "about#contact"
+  get "agreement" => "about#agreement"
 
-  # 県ごとのページ-----------------------------------------
-  # get "/areas/:prefecture_name" => "prefectures#show"
-  # スポット詳細ページ---------------------------------------
-  # get "/areas/:prefecture_name/:spot_name" => "spots#show"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

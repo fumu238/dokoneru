@@ -4,7 +4,7 @@
 
 /*spot_index(top)----------------------*/
 .top-main {
-	background-image: url("/images/main-image5.jpg");
+	background-image: url(/images/main-image5.jpg);
 	background-position:bottom;
 	background-size:cover;
 	background-repeat: no-repeat;
@@ -28,9 +28,9 @@
 	height:300px;
 	border:solid 1px #cccccc;
 	border-radius: 10px;
-	margin:20px auto;
+	margin:50px auto 50px;
 	text-align: center;
-	background-image: url("/images/add.jpg");
+	background-image: url(/images/add.jpg);
 }
 .add-text {
 	height:80px;
@@ -77,13 +77,15 @@
 }
 .japan-map {
 	width:800px;
-	margin:0 auto;
+	margin:0 auto 30px;
+	border-bottom:solid 2px #cccccc;
 }
 .map-box {
 	background-image: url("/images/map.jpg");
 	width:100%;
 	background-repeat: no-repeat;
 	background-size: cover;
+	margin-bottom:50px;
 }
 .top-new-arrivals{
 	width:800px;
@@ -296,13 +298,17 @@
 	border-radius: 30px;
 	padding:8px 15px;
 	text-align: center;
+	-webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
 }
 .favorite-slept a {
 	width:100%;
 	display: inline-block;
 	text-decoration: none;
 }
-.favorite-slept:hover {
+/*.favorite-slept:hover {
 	-webkit-transform: translateY(-3px);
     -ms-transform: translateY(-3px);
     transform: translateY(-3px);
@@ -310,12 +316,15 @@
     -webkit-transition: 0.1s ease;
  	 -moz-transition: 0.1s ease;
   	-o-transition: 0.1s ease;
- }
+ }*/
 .favorite-slept:active {
 	-webkit-transform: none;
     -ms-transform: none;
     transform: none;
     box-shadow:none;
+    -webkit-transition: 0.1s ease;
+ 	 -moz-transition: 0.1s ease;
+  	-o-transition: 0.1s ease;
 }
 .green {
 	background-color: green;
