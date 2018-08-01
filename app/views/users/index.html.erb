@@ -20,7 +20,7 @@
 				<% @users.each do |user| %>
 					<tr>
 					  <td><%= link_to user_path(user) do %>
-					  		<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: '/images/no-icon.jpg', :size => '50x50' %>
+					  		<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: '/images/no-icon.jpg', :size => '50x50', class: "radius" %>
 					  		<% end %></td>
 					  <td><%= user.nick_name %></td>
 					  <td><%= user.prefecture.prefecture_name %></td>
