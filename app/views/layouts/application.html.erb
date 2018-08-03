@@ -40,14 +40,16 @@
 
 <footer>
   <div class="footer-box clearfix">
+  <% unless user_signed_in? %>
       <%= link_to 'ログイン｜',  new_user_session_path,:style => "color:white;" %>
+  <% end %>
   <% if admin_signed_in? %>
       <%= link_to 'ログアウト｜',  destroy_admin_session_path, method: :delete,:style => "color:white;" %>
   <% elsif user_signed_in? %>
       <%= link_to 'ログアウト｜',  destroy_user_session_path, method: :delete,:style => "color:white;" %>
   <% end %>
       <%= link_to "ユーザー検索｜" ,users_path,:style => "color:white;" %>
-      <%= link_to "絞り込み検索｜" ,spots_search_path,:style => "color:white;" %>
+      <%= link_to "ネドコ絞り込み検索｜" ,spots_search_path,:style => "color:white;" %>
   </div>
 
   <div class="footer-box clearfix">
