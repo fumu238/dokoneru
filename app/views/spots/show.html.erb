@@ -25,36 +25,43 @@
            		<%= render partial: 'slept', locals: {spot: @spot} %>
          	</span>
 		  </div>
-<!-- image--------------------------------------------------- -->
-		</div>
-
-		  <div class="content-space clearfix">
-			<div class="spot-h3">
-			    画像ギャラリー
-			  </div>
+<!-- swiper--------------------------------------------------- -->
+		<div class="content-space clearfix">
+				<div class="spot-h3">
+			    	画像ギャラリー
+				</div>
 				<div class="edit-button">
 					<% if user_signed_in? || admin_signed_in? %>
 				 	<%= link_to "画像投稿", new_spot_spot_image_path(@spot), class: "btn btn-outline-warning" %>
 				 	<% end %>
-				  </div>
-				  	<% if @spot.spot_images.blank? %>
-				  	 	<div class="no-comment">
-				  			画像を投稿しませんか?
-				  		</div>
-				  	<% end %>
-				  <% @spot.spot_images.each do |spot_image| %>
-				   <div class="spot-image-box">
-			 	     <div class="spot-image">
-			 	     	<%= attachment_image_tag spot_image, :image, :fill, 360, 270 , format: 'jpeg' %>
-			       </div>
-			     <i class="fa fa-images" aria-hidden="true"></i> <%= spot_image.image_discription %>
-			  </div>
-			  <% end %>
+				</div>
+		<% unless @spot.spot_images.present? %>
+				<div class="no-comment">
+				  画像を投稿しませんか?
+				</div>
+		<% else %>
+
+			<div class="sample sample01">
+			  <div class="swiper-container">
+			    <div class="swiper-wrapper">
+		   			<% @spot.spot_images.each do |spot_image| %>
+		   				<div class="swiper-slide">
+			 					<%= attachment_image_tag spot_image, :image, :fill, 695, 400, format: 'jpeg', class: "slide-image"%>
+			      <i class="fa fa-images" aria-hidden="true"></i> <%= spot_image.image_discription %>
+					</div>
+					<% end %>
+		    	</div>
+			    	<div class="swiper-button-prev"></div>
+			    	<div class="swiper-button-next"></div>
+			    	<div class="swiper-pagination"></div>
+			    </div>
+		  	  </div>
+			<% end %>
 		</div>
 <!-- 以下スポット特徴------------------------------------------------------- -->
 		  <div class="content-space clearfix">
 			<div class="spot-h3">
-		  		スポット特徴
+		  		ネドコ特徴
 			 </div>
 			 <div class="edit-button">
 					<% if user_signed_in? || admin_signed_in? %>
@@ -66,10 +73,14 @@
 <!-- ----------------------------------------------------------------- -->
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
-		  		スポット投稿者コメント
+		  		ネドコ説明
 			   </div>
 			    <div class="discription">
+			      <% if @spot.discription.present? %>
 			      <%= @spot.discription %>
+			    <% else %>
+			    	まだ説明はありません
+			    <% end %>
 			    </div>
 		   </div>
 <!-- 以下コメント&フォーム--------------------------------------------------- -->
@@ -81,7 +92,7 @@
 <!-- ----------------------------------------------------------------- -->
 		 <div class="content-space clearfix">
 		 	<div class="spot-h3">
-		  		スポット基本情報
+		  		ネドコ基本情報
 			   </div>
 			  <div class="spot-basis-info">
 			  	<%= @spot.spot_name %><br>

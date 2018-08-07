@@ -19,8 +19,6 @@
 
 // japan_map-------------------------------------------------------------------------------------------------------------------------------------------------------
 $(function(){
-  //地域を設定
-  //{"code":[地域のコード], "name": [地域の名前], "color":[地域につける色], "hoverColor":[地域をマウスでホバーしたときの色], "prefectures":[地域に含まれる都道府県のコード]}
   var areas = [
     {"code": 1 , "name":"北海道地方", "color":"#ca93ea", "hoverColor":"#e0b1fb", "prefectures":[1]},
     {"code": 2 , "name":"東北地方",   "color":"#a7a5ea", "hoverColor":"#d6d4fd", "prefectures":[2,3,4,5,6,7]},
@@ -37,18 +35,18 @@ $(function(){
   $("#map").japanMap(
     {
       areas  : areas, //上で設定したエリアの情報
-      selection : "prefecture", //選ぶことができる範囲(県→prefecture、エリア→area)
-      borderLineWidth: 1.5, //線の幅
-      drawsBoxLine : false, //canvasを線で囲む場合はtrue
-      movesIslands : true, //南西諸島を左上に移動させるときはtrue、移動させないときはfalse
-      showsAreaName : true, //エリア名を表示しない場合はfalse
+      selection : "prefecture",
+      borderLineWidth: 1.5,
+      drawsBoxLine : false,
+      movesIslands : true,
+      showsAreaName : true,
       showsPrefectureName : true,
-      width: 1000, //canvasのwidth。別途heightも指定可。
-      backgroundColor: "rgba(0,0,0,0.0)",//canvasの背景色
-      font : "MS Mincho", //地図に表示する文字のフォント
-      fontSize : 10, //地図に表示する文字のサイズ
-      fontColor : "areaColor", //地図に表示する文字の色。"areaColor"でエリアの色に合わせる
-      fontShadowColor : "black", //地図に表示する文字の影の色
+      width: 1000,
+      backgroundColor: "rgba(0,0,0,0.0)",
+      font : "MS Mincho",
+      fontSize : 10,
+      fontColor : "areaColor",
+      fontShadowColor : "black",
       onSelect : function(data){
                 window.location.href = '/prefecture/' + data.name ;
                 }
@@ -64,21 +62,48 @@ $(function(){
     $(".comment-modal").fadeOut();
   });
 
-// ヘッダー変化-----------------------------
-  var dist = 50;
+// menu--------------------------------------
+ $(".humburger").click(function(){
+    $(".menu-modal").show('fold', '', 1500);
+    $(".humburger").hide();
+    $(".humburger2").fadeIn();
+  });
+
+ $(".humburger2").click(function(){
+    $(".menu-modal").hide('fold', '', 1000 );
+    $(".humburger2").hide();
+    $(".humburger").fadeIn();
+ });
+
+// ヘッダー-----------------------------
+  var dist = 30;
   $(window).scroll(function() {
-    if ($(window).scrollTop() > 50) {
+    if ($(window).scrollTop() > 30) {
       $('header').addClass('scroll');
       $('.head-logo').addClass('scroll');
       $('.head-right').addClass('scroll');
+      $('.humburger').addClass('scroll');
+      $('.menu-modal').addClass('scroll');
     } else {
       $('header').removeClass('scroll');
       $('.head-logo').removeClass('scroll');
       $('.head-right').removeClass('scroll');
+      $('.humburger').removeClass('scroll');
+      $('.menu-modal').removeClass('scroll');
     }
   });
 });
 
+window.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.sample01 .swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    effect: "slide",
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    loop: true
+    });
+}, false);
 
 
 

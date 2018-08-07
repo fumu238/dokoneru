@@ -7,22 +7,26 @@
 
             <%= search_form_for @q ,url: spots_search_path ,html:{class: 'form-inline'} do |f| %>
             <div class="container">
-		        ネドコタイプ
+            	<div class="form-group">
+		        	＜ネドコタイプ＞
+		        </div>
               	<div class="btn-group" data-toggle="buttons">
-              	 <label for="type" class="btn btn-default">
+              	 <label for="type" class="btn btn-default search-s">
 		            <%= f.radio_button :type_eq ,"" %>指定なし
 		          </label>
-		          <label for="type" class="btn btn-default">
+		          <label for="type" class="btn btn-default search-s">
 		            <%= f.radio_button :type_eq ,"道の駅" %>道の駅
 		          </label>
-		          <label for="type"class="btn btn-default">
+		          <label for="type"class="btn btn-default search-s">
 		            <%= f.radio_button :type_eq ,"公園"%>公園
 		          </label>
-		          <label for="type"class="btn btn-default">
+		          <label for="type"class="btn btn-default search-s">
 		            <%= f.radio_button :type_eq ,"無料キャンプ場"%>無料キャンプ場
 		          </label>
-		        </div><br>
-		        東屋　　　　
+		        </div>
+		        <div class="form-group">
+		        	＜東屋＞
+		        </div>
 		        <div class="btn-group" data-toggle="buttons">
 		        	<label for="pavilion" class="btn btn-default">
 		            <%= f.radio_button :pavilion_eq ,"" %>指定なし
@@ -30,20 +34,16 @@
 		          <label for="pavilion" class="btn btn-default">
 		            <%= f.radio_button :pavilion_eq ,"あり" %>あり
 		          </label>
-		          <label for="pavilion"class="btn btn-default">
-		            <%= f.radio_button :pavilion_eq ,"なし"%>なし
-		          </label>
-		        </div><br>
-		        24時間休憩所
+		        </div>
+		        	<div class="form-group">
+		        	＜24時間休憩所＞
+		        </div>
 		        <div class="btn-group" data-toggle="buttons">
 		        	<label for="rest_area" class="btn btn-default">
 		            <%= f.radio_button :rest_area_eq , "" %>指定なし
 		          </label>
 		          <label for="pavilion" class="btn btn-default">
 		            <%= f.radio_button :rest_area_eq ,"あり" %>あり
-		          </label>
-		          <label for="pavilion"class="btn btn-default">
-		            <%= f.radio_button :rest_area_eq ,"なし"%>なし
 		          </label>
 		        </div>
 					<%= link_to '検索条件のクリア', request.path, class: "btn btn-outline-info" %>
