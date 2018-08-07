@@ -7,6 +7,7 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
   </head>
 
 <body>
@@ -33,7 +34,16 @@
         <div class="head-links"><%= link_to "新規投稿" ,new_spot_path ,:style => "color:#007b43;" %>
         </div>
 　　</div>
+    <!-- -レスポンシブメニュー------------------------------------------- -->
+    <div class="humburger">
+      <i class="fa fa-bars" aria-hidden="true" style="color:#007b43;"></i>
+    </div>
+    <div class="humburger2">
+      ✖️
+    </div>
 </header>
+
+<%= render "layouts/menu" %>
 
     <%= yield %>
 
