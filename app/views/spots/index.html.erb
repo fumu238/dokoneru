@@ -6,7 +6,7 @@
 </div>
 	<div class="top-add-box clearfix">
 		<div class="add-text">
-			 現在登録されている寝床は <%= @spot.count %> 件です
+			 現在登録されているネドコは <%= @spot.count %> 件です
 		</div>
 	  		<%= link_to new_spot_path do %>
 				<div class="add-btn">
@@ -25,7 +25,7 @@
 <div class="back-ground ">
 	<div class="main-space">
   			<div class="section-head">
-		 		<h3>新着寝床一覧</h3>
+		 		<h3>新着ネドコ一覧</h3>
 	  		</div>
 	  	<% @spot.first(5).each do |spot| %>
 	  		<%= link_to spot_path(spot) do %>
@@ -56,7 +56,7 @@
 		           		<%= render partial: 'spots/favorite', locals: {spot: spot} %>
 		         	</span>
 				</div>
-				<div class="favorite-box">
+				<div class="favorite-box-r">
 					<span id="slept<%= spot.id %>">
 		           		<%= render partial: 'spots/slept', locals: {spot: spot} %>
 		         	</span>

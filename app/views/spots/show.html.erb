@@ -2,6 +2,9 @@
 	<div class="main-space">
 		<%= render "layouts/flash" %>
 		<div class="section-head clearfix">
+			
+			<h3><%= @spot.spot_name %></h3>
+			<h4><%= @spot.prefecture.prefecture_name %></h4>
 			<div class="head-user">
 				<i class="fa fa-user" aria-hidden="true"></i>投稿者
 				<%= link_to user_path(@spot_user),:style => "color:#99cc99" do %>
@@ -9,12 +12,9 @@
 				<% end %>
 				さん
 			  </div>
-			<h3><%= @spot.spot_name %></h3>
-			<h4><%= @spot.prefecture.prefecture_name %></h4>
 		</div>
-
-		<div class="content-space clearfix">
 <!-- favorite--------------------------------------------- -->
+		<div class="content-space clearfix">
 		  <div class="favorite-box">
 		   	<span id="favorite<%= @spot.id %>">
            		<%= render partial: 'favorite', locals: {spot: @spot} %>
@@ -25,6 +25,7 @@
            		<%= render partial: 'slept', locals: {spot: @spot} %>
          	</span>
 		  </div>
+		 </div>
 <!-- swiper--------------------------------------------------- -->
 		<div class="content-space clearfix">
 				<div class="spot-h3">
@@ -117,3 +118,5 @@
 		 <% end %>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>

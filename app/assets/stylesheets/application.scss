@@ -157,10 +157,6 @@ body {
 
 
 
-
-
-
-
 /*共通-----------------------------*/
 .back-ground {
 	width:100%;
@@ -216,9 +212,6 @@ body {
 	background-color: rgba(0,0,0,0.0) !important;
 }
 /*----------------------------*/
-
-
-
 
 
 
@@ -357,13 +350,6 @@ body {
 
 
 
-
-
-
-
-
-
-
 /*prefecture_show-------------*/
 
 .prefecture-show-main-text {
@@ -396,11 +382,6 @@ body {
 	float:right;
 }
 /*--------------------------------*/
-
-
-
-
-
 
 
 
@@ -445,12 +426,6 @@ body {
 	height:300px;
 }
 /*--------------------------------*/
-
-
-
-
-
-
 
 
 
@@ -516,8 +491,9 @@ body {
 
 
 
-
+/*---------------------------------------------------------*/
 @media screen and (max-width:1102px){
+
 /*menu---------------------------------*/
 .head-right {
 	display:none;
@@ -553,17 +529,15 @@ body {
 	border-bottom:none;
 }
 .menu-content {
-	padding:5px 20px 5px 20px;
+	padding:10px 20px 2px 20px;
 	margin-bottom:5px;
 }
 .humburger2 {
 	top:20px;
 	right:50px;
 }
-
-/*---------------------------------------*/
 }
-
+/*---------------------------------------*/
 
 
 
@@ -682,12 +656,13 @@ footer {
 	width:330px;
 	padding:0 40px 0 ;
 	margin-left:0;
+	margin:2px 0 6px;
 }
-.favorite-box-r {
+/*.favorite-box-r {
 	width:340px;
 	padding:0 40px 0 60px ;
 	margin: 10px 0 0 0;
-}
+}*/
 
 
 

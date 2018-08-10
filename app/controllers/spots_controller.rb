@@ -48,9 +48,13 @@ class SpotsController < ApplicationController
 
 	def destroy
 		spot = Spot.find(params[:id])
-		spot.destroy
 	    spot.user.spot_count -= 1
 	    spot.user.save
+	    spot.slepts.each do |slept|
+	    	slept.user.slept_count -= 1
+	    	slept.user.save
+	    end
+	    spot.destroy
 		redirect_to root_path
 	end
 

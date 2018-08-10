@@ -7,7 +7,8 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css"> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css">
   </head>
 
 <body>
@@ -59,7 +60,7 @@
       <%= link_to 'ログアウト｜',  destroy_user_session_path, method: :delete,:style => "color:white;" %>
   <% end %>
       <%= link_to "ユーザー検索｜" ,users_path,:style => "color:white;" %>
-      <%= link_to "ネドコ絞り込み検索｜" ,spots_search_path,:style => "color:white;" %>
+      <%= link_to "ネドコ絞り込み検索" ,spots_search_path,:style => "color:white;" %>
   </div>
 
   <div class="footer-box clearfix">
