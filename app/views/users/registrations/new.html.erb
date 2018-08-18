@@ -7,30 +7,30 @@
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
               <div class="form-group">
-                  <label class="control-label col-xs-2">名前　<span class="red">※必須</span></label>
+                  <label class="control-label col-xs-2">名前　<span class="red">※</span></label>
                   <div class="col-xs-5">
                     <%= f.text_field :user_name, class: "form-control" %>
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-xs-2">ふりがな　<span class="red">※必須</span></label>
+                  <label class="control-label col-xs-2">ふりがな　<span class="red">※</span></label>
                   <div class="col-xs-5">
                     <%= f.text_field :name_phonetic, class: "form-control" %>
                   </div>
               </div>
               <div class="form-group">
-                  <label class="control-label col-xs-2">ニックネーム　<span class="red">※必須</span></label>
+                  <label class="control-label col-xs-2">ニックネーム　<span class="red">※</span></label>
                   <div class="col-xs-5">
                     <%= f.text_field :nick_name, class: "form-control" %>
                   </div>
               </div>
               <div class="form-group">
-                <label>都道府県　<span class="red">※必須</span></label>
+                <label>都道府県　<span class="red">※</span></label>
                 <% @prefecture = Prefecture.all %>
                   <%= f.collection_select :prefecture_id, @prefecture, :id, :prefecture_name,{ prompt: "選択"}, {class: "form-control"} %>
                  </div>
               <div class="form-group">
-                  <label class="control-label col-xs-2">メールアドレス　<span class="red">※必須</span></label>
+                  <label class="control-label col-xs-2">メールアドレス　<span class="red">※</span></label>
                   <div class="col-xs-5">
                     <%= f.email_field :email, autofocus: true, class: "form-control" %>
                   </div>
@@ -50,10 +50,17 @@
                    <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
                   </div>
               </div>
+  <%= render "about/agreement" %>
+               <div class="form-group">
+                  <label class="control-label col-xs-2">登録完了するためには、利用規約に同意する必要があります</label>
+                  <div class="col-xs-5">
+                    <div class="btn btn-outline-warning agree-on">利用規約を読む</div>
+                  </div>
+              </div>
               <div class="form-group">
                   <label class="control-label col-xs-5"></label>
                   <div class="col-xs-2">
-                   <%= f.submit "登録" ,class: "btn btn-outline-info"%>
+                   <%= f.submit "登録" ,class: "btn btn-outline-info submit-btn"%>
                   </div>
               </div>
               <% end %>
