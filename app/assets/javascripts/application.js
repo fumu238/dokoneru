@@ -75,6 +75,27 @@ $(function(){
     $(".humburger").fadeIn();
  });
 
+// agreement------------------------------
+  agreeText();
+      $(':checkbox').change(function(){
+          agreeText();
+      });
+
+      function agreeText() {
+            if($('.agree-check').is(':checked')) {
+                $('.submit-btn').prop('disabled', false);
+            } else {
+                $('.submit-btn').prop('disabled', true);
+            }
+        }
+  $(".agree-on").click(function(){
+    $(".agree").fadeIn();
+  });
+
+  $(".agree-off").click(function(){
+    $(".agree").fadeOut();
+  });
+
 // ヘッダー-----------------------------
   var dist = 30;
   $(window).scroll(function() {
